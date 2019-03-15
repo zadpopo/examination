@@ -42,14 +42,18 @@ $studentnumb = ($date). "-".($random);
 
 <div class="container " style="background-color: black">
 <br>
-<h2 class="text-white">Student Registration</h2><br><br>
+<h2 class="text-white">Student Registration</h2>
+<br>
+<b style=color:red; >* Required Field</b> 
+<br>
 
 <form action="" method="POST">
+    
 
 <div class="form-row text-white">
 
 <div class="form-group col-md-3">
-    <label for="FirstName">First Name</label>
+    <label for="FirstName"><b style=color:red; >*</b>First Name</label>
     <input type="text" class="form-control" id="" name="fname" placeholder="First Name">
   <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
   </div>
@@ -63,44 +67,30 @@ $studentnumb = ($date). "-".($random);
 
 
   <div class="form-group col-md-3" >
-    <label for="LastName">Last Name</label>
+    <label for="LastName"><b style=color:red; >*</b>Last Name</label>
+    <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
+  </div>
+
+  <div class="form-group col-md-3" >
+    <label for="LastName"><b style=color:red; >*</b>Nickname</label>
     <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
   </div>
 
 
-  <div class="form-group col-md-3">
-    <label for="Address">Address</label>
+  <div class="form-group col-md-6">
+    <label for="Address"><b style=color:red; >*</b>Permanent Address</label>
     <input type="text" class="form-control" id="Address" name="Address" placeholder="Address">
   </div>
 
-    <div class="form-group col-md-3">
-    <label for="EnrolledSchool">Currently Enrolled School</label>
+    <div class="form-group col-md-6">
+    <label for="EnrolledSchool"><b style=color:red; >*</b>Graduated School</label>
     <input type="text" class="form-control" id="EnrolledSchool" name="enrolledschool"placeholder="Name of school">
   </div>
 
-<div class="form-group col-md-3">
-	<label for="">Programs:</label>
-<div class="form-group">
-	<select class="form-control" name="prog">
-<?php
 
-$query1 ="SELECT DISTINCT program_name from programtbl";
-$result1 =mysqli_query($conn,$query1);
-
-while ($row = mysqli_fetch_array($result1)) {
-	$prog = $row["program_name"];
-	echo "<option value='$prog'>$prog</option>";
- 	# populate data for program dropdown
- } 
-
-
-?>
-</select>
-</div>
-</div>
 
 <div class="form-group col-md-3">
-   <label for="" >Gender</label>
+   <label for="" ><b style=color:red; >*</b>Gender</label>
    <select class="form-control" name="gender">
    	<option value="Male">Male</option>
    	<option  value="Female">Female</option>
@@ -109,21 +99,69 @@ while ($row = mysqli_fetch_array($result1)) {
   </div>
 
   <div class="form-group col-md-3">
-    <label for="Phone">Tel. Phone</label>
+    <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
     <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
   </div>
 
 
-   <br>
+  <div class="form-group col-md-3">
+  <label for=""><b style=color:red; >*</b>Programs:</label>
+<div class="form-group">
+  <select class="form-control" name="prog">
+<?php
+
+$query1 ="SELECT DISTINCT program_name from programtbl";
+$result1 =mysqli_query($conn,$query1);
+
+while ($row = mysqli_fetch_array($result1)) {
+  $prog = $row["program_name"];
+  echo "<option value='$prog'>$prog</option>";
+  # populate data for program dropdown
+ } 
+
+
+?>
+</select>
+</div>
+</div>
+
    <div class="form-group col-md-3">
-    <label for="user">Username</label>
-    <input type="text" class="form-control" id="user" readonly name="username" value="<?php echo $studentnumb ?>" placeholder="">
+    <label for="Phone"><b style=color:red; >*</b>Season</label>
+    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
+  </div>
+
+
+
+<hr>
+
+
+   <div class="form-group col-md-12">
+    <label for="Phone">
+<b style=color:green; >In case of Emergency</b> </label>
+
+  </div>
+
+
+   <div class="form-group col-md-3">
+    <label for="Phone"><b style=color:red; >*</b>Guardian Name</label>
+    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
+    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
   </div>
 
    <div class="form-group col-md-3">
-    <label for="user">Password</label>
-    <input type="Password" class="form-control" id="Password" name="Password" placeholder="">
+    <label for="Phone"><b style=color:red; >*</b>Relationship</label>
+    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
   </div>
+
+
+
+
+  
+  
 </div>
 <div class="modal-footer">
 	 <a href="home.php" type="button" class="btn btn-danger"  value="Cancel">Cancel</a>
