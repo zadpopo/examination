@@ -8,6 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="admin_sidemenu.css">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -20,7 +24,7 @@
 
     <title></title>
   </head>
-  <body style="background-image: url('../img/bgmain.jpg'); background-color: white; background-origin:content-box, content-box; background-size: cover; background-repeat: no-repeat"; >
+
 <?php
 
 include ("connections.php");
@@ -66,6 +70,13 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
   
 }
 
+  $s1= "SELECT * FROM yeartbl WHERE status = '1'";
+  $r1 = $conn->query($s1);
+  $d1= $r1->fetch_assoc();
+  $active = $d1['year'];
+
+
+
 ?>
 <div class="area"></div><nav class="main-menu">
  <form action="" method="POST"> 
@@ -91,6 +102,16 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     </a>
                     
                 </li>
+
+                <li>
+                   <a href="en_review.php">
+                       <i class="fa fa-table fa-1.5x"></i>
+                        <span class="nav-text">
+                            Set Review
+                        </span>
+                    </a>
+                </li>
+
                 <li class="has-subnav">
                     <a href="programs.php">
                         <br>
@@ -129,14 +150,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                         </span>
                     </a>
                 </li>
-                <li>
-                   <a hidden href="#">
-                       <i class="fa fa-table fa-2x"></i>
-                        <span class="nav-text">
-                            Tables
-                        </span>
-                    </a>
-                </li>
+                
                 <li>
                    <a hidden href="#">
                         <i class="fa fa-map-marker fa-2x"></i>

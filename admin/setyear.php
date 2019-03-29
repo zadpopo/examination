@@ -36,7 +36,7 @@
   </div>
    <label for="" class="col-sm-1 col-form-label">-</label>
   <div class="col-sm-3">
-    <input type="number"  class="form-control" id=""required   name="y2" placeholder="">
+    <input type="text"  class="form-control" id=""required   name="y2" placeholder="">
   </div>
 </div>
   <br><br><br>
@@ -122,7 +122,7 @@ $y3 = $y1 ."-". $y2;
    					<?php
 
 
-   					 $q1="SELECT DISTINCT year FROM yeartbl where status = '0' ORDER BY year DESC ";
+   					 $q1="SELECT DISTINCT year FROM yeartbl where status = '0' ORDER BY year_id DESC ";
 
  					 $r1= mysqli_query($conn,$q1);
 
