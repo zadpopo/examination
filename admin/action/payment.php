@@ -29,7 +29,7 @@ if (isset($_POST['stud_no'])) {
 
   $d1= $r1->fetch_assoc();
 
-  $block = $d1['block'];
+  $block = $d1['block_id'];
 
 }
 
