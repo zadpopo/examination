@@ -9,15 +9,17 @@
 
   <?php 
   include ("php/nav.php");
+
   ?>
   
-  <!---fire anim--->
+
 
 
 <link rel="stylesheet" type="text/css" href="waterdrop-anim.css">
 
-<h1>Top Ranker</h1>
-<div class="drop-container">
+  <!---water drop anim--->
+<h1></h1>
+<div hidden="" class="drop-container">
   <div class="drop"></div>
 </div>
 

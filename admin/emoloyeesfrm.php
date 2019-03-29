@@ -25,17 +25,22 @@
 
   ?>
 
-  <title ">Employee Form</title><br>
+  <<title>Employee Form</title><br>
   </head>
-  <body style="background-image: url('../img/bgemp1.jpg');">
+  <body>
 
-<center><h2 class="text-white">Employee information</h2></center>
+    <?php
+      include("php/bg.php");
+    ?>
 
 
- <div class="container mx-auto" style="background-color: black; opacity: 0.83" ><br><br>
+
+
+ <div class="container mx-auto" style="background-color: black; opacity: 0.90" ><br><br>
 
 <form method="POST" action="">
-<div class="container">
+  
+  <h2 class="text-white">Employee information</h2><br>
 
 <div class="form-row text-white ">
   <div class="form-group col-md-5">
@@ -131,9 +136,10 @@
 
 
 </form>
+</div>
 
-</div>
-</div>
+
+
 
 
 <?php
@@ -143,6 +149,7 @@
 if (isset($_POST['addemp'])) {
 
   include("php/connections.php");
+
   
   $fname=$_POST['fname'];
   $mname=$_POST['mname'];
