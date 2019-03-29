@@ -15,7 +15,6 @@
 
 
 <!----countdown loading text--->
-
 <script type="text/javascript">
     var timeleft = 5;
     var downloadTimer = setInterval(function(){
@@ -26,6 +25,6 @@
     window.location="admin/index.php"
     },5000);
 </script>
-	
+
 </body>
 </html>
