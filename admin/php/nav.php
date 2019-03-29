@@ -16,11 +16,14 @@
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+        <!---onlinewebfont-->
+
+        <link href="//db.onlinewebfonts.com/c/23ab8b9b588d250d12590e755a4d00da?family=Nexa+Bold" rel="stylesheet" type="text/css"/>
+
+
+
     <title></title>
   </head>
-  <body style=" background-color: black;">
-
-
 
 <?php
 
@@ -140,7 +143,8 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                 </li>
                 <li>
                     <a  href="stud_list.php">
-                        <i class="fa fa-font fa-2x"></i>
+                      <br>
+                        <i class="fa fa-font fa-1.5x"></i>
                         <span class="nav-text">
                            Student list
                         </span>

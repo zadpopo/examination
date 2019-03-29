@@ -12,12 +12,14 @@
 
 <br>
 
- <div class="container">
+ <div class="container " >
 <div class="card-deck" >
   <div class="card">
  
-    <div class="card-body">
-      <h5 class="card-title">Create Review Year</h5>
+    <div class="card-body " style="background-color: #2B2A2A">
+       <h5 class="card-title text-white">Create Program</h5>
+      <div class="card-body " style="background-color: white" >
+     
     
 
     <form action="" method="POST">
@@ -28,11 +30,11 @@
 
 
   <div class="form-group row">
-    <label for="" class="col-sm-4 col-form-label">Program:</label>
-    <div class="col-sm-6">
+    <label for="" class="col-sm-6 col-form-label">Program:</label>
+    <div class="col-sm-4  ">
     <div class="form-group">
  
-    <input class="form-control" type="text" name="program" value="" required>
+    <input class="form-control" type="text" name="program" value="" required placeholder="program name..">
   </div>
   </div>
 </div>
@@ -71,9 +73,6 @@ if (isset($_POST['padd'])) {
                   }
                $conn->close();
 
-
-  
-
 }
  ?>
 
@@ -81,27 +80,19 @@ if (isset($_POST['padd'])) {
     </div>
   
   </div>
-  <br>
-
-
-<div class="card-deck">
+</div>
+</div>
+<br>
+<div class="container ">
+<div class="card-deck" >
   <div class="card">
 
-    <div class="card-body ">
-      <h5 class="card-title">List of Program</h5>
+    <div class="card-body " style="background-color: #2B2A2A">
+      <h5 class="card-title text-white">List of Program</h5>
 
+<ul class="list-group">
 
-
-
-  <div class="form-group row">
-    <label for="" class="col-sm-4 col-form-label">Programs:</label>
-    <div class="col-sm-6">
-    <div class="form-group">
- 
-    <select class="form-control" id="exampleFormControlSelect1">
-   
-
-            <?php
+ <?php
 
 
              $q1="SELECT DISTINCT program_name FROM  programtbl ";
@@ -111,21 +102,18 @@ if (isset($_POST['padd'])) {
 
                     while  ($row = mysqli_fetch_array($r1)){
                      $prog = $row["program_name"];
-                     echo "<option value=''>$prog</option>";
+
+                     echo "<li class='list-group-item' >$prog</li>";
                    }
                     ?>
 
+</ul>
 
 
 
-
-    </select>
   </div>
   </div>
 </div>
-
-
-
 
     </div>
 
@@ -136,18 +124,6 @@ if (isset($_POST['padd'])) {
 </div>
 
 </div>
-
-     
-   
-
-
-
-
-  
-
-
-
-
 
   </body>
   </html>

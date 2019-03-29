@@ -38,7 +38,7 @@
 
 
    <div class=" table-sorting table-responsive-sm mx-auto" style="width:95%">
-                   <table class="table table-striped table-bordered  table-light"  id="tSortable22">
+                   <table class="table table-striped table-bordered  table-dark"  id="tSortable22">
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
