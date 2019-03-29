@@ -4,13 +4,14 @@
 <html>
 <head>
 	<title>Review Year</title>
+
+
 </head>
 <body>
 
   <?php 
   include ("php/nav.php");
   ?>
-  
   
 
   <div class="container">
@@ -20,16 +21,16 @@
 <div class="card-deck" >
   <div class="card">
  
-    <div class="card-body">
-      <h5 class="card-title">Create Review Year</h5>
-    
+    <div class="card-body"  style="background-color: #2B2A2A">
+      <h5 class="card-title text-white">Create Review Year</h5>
+     
 
     <form action="" method="POST">
 
 
 
   <div class="form-group row">
-    <label for="" class="col-sm-4 col-form-label">Activite Year:</label>
+    <label for="" class="col-sm-2 col-form-label text-white" >Activite Year:</label>
     <div class="col-sm-3">
     <input type="number"  class="form-control" id="" required name="y1" placeholder="">
   </div>
@@ -84,8 +85,9 @@ $y3 = $y1 ."-". $y2;
 <div class="card-deck">
   <div class="card">
 
-    <div class="card-body ">
-      <h5 class="card-title">Set Review Year</h5>
+    <div class="card-body " >
+      <h5 class="card-title ">Set Review Year</h5>
+
 
 
       <?php
@@ -93,9 +95,6 @@ $y3 = $y1 ."-". $y2;
    $query= "SELECT * FROM yeartbl WHERE  status ='1'";
    $result= mysqli_query($conn,$query);
    $data= $result->fetch_assoc();
-
-
-
 
       ?>
      
@@ -176,23 +175,15 @@ $aa= $_POST["aa"];
 ?>
 
 
-
-
-
     </div>
 
   </div>
-
-
-
 
 
 </div>
 
 
 <br>
-
-
 
 </body>
 </html>

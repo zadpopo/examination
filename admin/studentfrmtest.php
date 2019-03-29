@@ -10,16 +10,15 @@
 
     <title> Student Registration</title>
   </head>
-  <body style="background-image: url('../img/bgstureg.jpg');" style="background-size: cover;">
+  <body >
   	
   			<?php 
-include("../php/connections.php")
-
+include("../php/connections.php");
+include("php/bg.php");
 
 		?>
 
-
-
+<!---random number-->
 
 <?php
 date_default_timezone_set("Asia/Manila");
@@ -70,6 +69,10 @@ $studentnumb = ($date). "-".($random);
     <label for="LastName"><b style=color:red; >*</b>Last Name</label>
     <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
   </div>
+    <div class="form-group col-md-3" >
+    <label for="Suffix"><b style=color:red; >*</b>Suffix</label>
+    <input type="text" class="form-control" id="Suffix" name="lname" placeholder="">
+  </div>
 
   <div class="form-group col-md-3" >
     <label for="LastName"><b style=color:red; >*</b>Nickname</label>
@@ -77,37 +80,47 @@ $studentnumb = ($date). "-".($random);
   </div>
 
 
-  <div class="form-group col-md-6">
+  <div class="form-group col-md-5">
     <label for="Address"><b style=color:red; >*</b>Permanent Address</label>
     <input type="text" class="form-control" id="Address" name="Address" placeholder="Address">
   </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
     <label for="EnrolledSchool"><b style=color:red; >*</b>Graduated School</label>
     <input type="text" class="form-control" id="EnrolledSchool" name="enrolledschool"placeholder="Name of school">
   </div>
 
 
-
 <div class="form-group col-md-3">
    <label for="" ><b style=color:red; >*</b>Gender</label>
    <select class="form-control" name="gender">
-   	<option value="Male">Male</option>
-   	<option  value="Female">Female</option>
+    <option value="Male">Male</option>
+    <option  value="Female">Female</option>
 </select>
- 
-  </div>
+</div>
+<div class="form-group col-md-3">
+   <label for="" ><b style=color:red; >*</b>Status</label>
+   <select class="form-control" name="stat">
+    <option value="FirstTake">First Take</option>
+    <option  value="Retake">Retake</option>
+</select>
+</div>
 
-  <div class="form-group col-md-3">
-    <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
-    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
-  </div>
+<div class="form-group col-md-3">
+   <label for="" ><b style=color:red; >*</b>Package</label>
+   <select class="form-control" name="stat">
+    <option value="FirstTake">Full Review</option>
+    <option  value="Retake">Intensive</option>
+       <option  value="Retake">Final Coaching</option>
+     </select>
+</div>
 
 
   <div class="form-group col-md-3">
   <label for=""><b style=color:red; >*</b>Programs:</label>
 <div class="form-group">
   <select class="form-control" name="prog">
+
 <?php
 
 $query1 ="SELECT DISTINCT program_name from programtbl";
@@ -125,26 +138,25 @@ while ($row = mysqli_fetch_array($result1)) {
 </div>
 </div>
 
-   <div class="form-group col-md-3">
-    <label for="Phone"><b style=color:red; >*</b>Season</label>
+
+  <div class="form-group col-md-3">
+    <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
     <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
   </div>
-
-
 
 <hr>
 
 
    <div class="form-group col-md-12">
     <label for="Phone">
-<b style=color:green; >In case of Emergency</b> </label>
+<b style=color:red; >In case of Emergency</b> </label>
 
   </div>
 
 
    <div class="form-group col-md-3">
     <label for="Phone"><b style=color:red; >*</b>Guardian Name</label>
-    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
+    <input type="text" class="form-control" id="Phone" name="phone" placeholder="">
   </div>
 
   <div class="form-group col-md-3">
@@ -154,7 +166,7 @@ while ($row = mysqli_fetch_array($result1)) {
 
    <div class="form-group col-md-3">
     <label for="Phone"><b style=color:red; >*</b>Relationship</label>
-    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
+    <input type="text" class="form-control" id="Phone" name="phone" placeholder="">
   </div>
 
 
@@ -183,10 +195,20 @@ if (isset($_POST["test"])) {
 	$address=$_POST['Address'];
 	$enrolledschool=$_POST['enrolledschool'];
 	$prog=$_POST['prog'];
+  $stat=$_POST['stat'];
+  
+
+//random number
+date_default_timezone_set("Asia/Manila");
+  $date = date("Y");
+
+  $random = (rand(1,9)) .  (rand(1,9)) .  (rand(1,9)) .  (rand(1,9));
+
+$studentnumb = ($date). "-".($random);
 
 
-	$Username=$_POST['username'];
-	$Password=($_POST['Password']);
+	//$Username=$_POST['username'];
+	//$Password=($_POST['Password']);
 	
 // encryption password
 	$cryptedpass = $Password;
@@ -201,9 +223,9 @@ if (isset($_POST["test"])) {
 
 
 
-     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`, `Address`, `EnrolledSchool`, Program ,`Gender`,`TelPhone`,`Password`) VALUES ( '$Username','$fname', '$mname', '$lname', '$address','$enrolledschool' ,'$prog','$gender','$phone','$db_pass')";
+     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`, `Address`, `EnrolledSchool`, Program, Status,`Gender`,`TelPhone`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname', '$address','$enrolledschool' ,'$prog','$stat','$gender','$phone','$db_pass')";
 
-     mysqli_query($conn," INSERT INTO `logtbl` ( `user`, `pass`, `position`) VALUES ( '$Username', '$db_pass', 'student')");
+     mysqli_query($conn," INSERT INTO `logtbl` ( `user`, `pass`, `position`) VALUES ( '$studentnumb', '$db_pass', 'student')");
 
 
     
@@ -219,7 +241,6 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
-
 
 
 

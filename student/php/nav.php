@@ -10,9 +10,17 @@
 
     <link rel="stylesheet" type="text/css" href="admin_sidemenu.css">
 
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <!---onlinewebfont-->
+
+        <link href="//db.onlinewebfonts.com/c/23ab8b9b588d250d12590e755a4d00da?family=Nexa+Bold" rel="stylesheet" type="text/css"/>
+
+
+
     <title></title>
   </head>
-  <body style=" background-color: black;">
+  <body style="background-image: url('../img/bgmain.jpg'); background-color: white; background-origin:content-box, content-box; background-size: cover; background-repeat: no-repeat"; >
 <?php
 
 include ("connections.php");
@@ -69,7 +77,8 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
             <ul>
                 <li>
                     <a href="home.php" name="home" >
-                        <i class="fa fa-home fa-2x"></i>
+                      <br>
+                        <i class="fa fa-home fa-1.5x"></i>
                         <span class="nav-text">
                             Home
                         </span>
@@ -79,7 +88,8 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                 </li>
                 <li class="has-subnav">
                     <a href="">
-                        <i class="fa fa-laptop fa-2x"></i>
+                      <br>
+                        <i class="fa fa-laptop fa-1.5x"></i>
                         <span class="nav-text">
                            Welcome <?php echo $stu_fullname ?>
                         </span>
@@ -88,7 +98,8 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                 </li>
                 <li class="has-subnav">
                     <a href="show_exam.php">
-                       <i class="fa fa-list fa-2x"></i>
+                      <br>
+                       <i class="fa fa-list fa-1.5x"></i>
                         <span class="nav-text">
                            Examinations list
                         </span>
@@ -100,7 +111,8 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
              
                 <li>
                     <a href="studentinfo.php">
-                       <i class="fa fa-info fa-2x"></i>
+                      <br>
+                       <i class="fa fa-info fa-1.5x"></i>
                         <span class="nav-text">
                             Student Profile
                         </span>
@@ -111,7 +123,8 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
             <ul class="logout">
                 <li>
                    <a href="../logout.php">
-                         <i class="fa fa-power-off fa-2x"></i>
+                    <br>
+                         <i class="fa fa-power-off fa-1.5x"></i>
                         <span class="nav-text">
                             Logout
                         </span>
