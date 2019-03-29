@@ -13,7 +13,7 @@
 
 
 
-  $q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND lecturer_id='$user'";
+$q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
  
  $r1= mysqli_query($conn,$q1);
 
@@ -48,9 +48,10 @@
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
-                                            <th style="width:50%">Exam</th>
+                                            <th style="width:40%">Exam</th>
+                                            <th style="width:20%">Program</th>
                                           
-                                            <th style="width:8%">Action</th>                         
+                                            <th style="width:10%">Action</th>                         
                                        
                                             
                                            
@@ -58,29 +59,25 @@
                                         </tr>
                                       </thead>
                                        
-                                        <tbody>
+                                              <tbody>
                                         <?php
                                         $counter =1;
                                         while($row = mysqli_fetch_array($r1)){
-
-
  $exam_name= $row["exam_name"];
+  $prog1= $row["program"];
 
- 	 $count='hidden';
 
-	$button= '';  
+   $count='hidden';
+  $button= '';  
 
-  $check_exam = mysqli_query($conn, "SELECT * FROM lexamtb WHERE status='1' AND exam_name='$exam_name' ");
+  $check_exam = mysqli_query($conn, "SELECT * FROM lexamtb WHERE status='1' AND exam_name='$exam_name' AND program='$prog1'");
   $check_exam_row = mysqli_num_rows($check_exam);
-
     if($check_exam_row > 0) {
       
       $button = 'hidden style="cursor: not-allowed;"';
   
       $count='';
     }
-
-
 ?>
 
                                       
@@ -88,8 +85,9 @@
                                         <tr weight="100%">
 
 
-                                        <td> <?php echo $counter ?></td>
+                                        <td ><?php echo $counter; ?></td>
                                         <td><?php echo $row["exam_name"]; ?></td>
+                                        <td><?php echo $row["program"]; ?></td>
                                
                                         
                                         <td  style="color: white;">
@@ -98,6 +96,14 @@
 
                                         <a href="iexam.php?id=<?php echo $row["exam_no"]; ?>" 	 onclick="return confirm_pay()"  <?php echo $button?> class="btn btn-secondary btn-sm "><i class="far fa-edit"></i></a>
 
+<?php 
+
+
+
+
+
+
+?>
                                         
 
                                         <a href="examact.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo $button?> class="btn btn-success btn-sm "><i class="fas fa-toggle-on"></i></a>
@@ -147,10 +153,37 @@
   <div class="form-group row">
     <label for="" class="col-sm-2 col-form-label">Name:</label>
     <div class="col-sm-10">
-    <input type="text" name="name" class="form-control" id="" placeholder="">
+    <input type="text" name="name" required class="form-control" id="" placeholder="">
   </div>
 </div>
 
+ <div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">Programs:</label>
+    <div class="col-sm-8">
+    <div class="form-group">
+ 
+    <select class="form-control" name="prog" required id="">
+      <option value=''>SELECT...</option>
+   
+
+            <?php
+
+
+             $q2="SELECT DISTINCT program_name FROM  programtbl ";
+
+           $r2= mysqli_query($conn,$q2);
+
+
+                    while  ($row = mysqli_fetch_array($r2)){
+                     $prog = $row["program_name"];
+                     echo "<option value='$prog'>$prog</option>";
+                   }
+                    ?>
+
+    </select>
+  </div>
+  </div>
+</div>
 
  <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -169,6 +202,8 @@
 <?php 
 
 if (isset($_POST["bcexam"])) {
+
+  $prog = $_POST["prog"];
 	
 	 $qname = $_POST["name"];
 
@@ -183,10 +218,15 @@ if (isset($_POST["bcexam"])) {
       $code= ($datee) . "-" . ($random1) . "" . ($random2);
 
 
+$rows_exam= mysqli_query($conn, "SELECT * FROM lexamtb WHERE exam_name='$qname' AND program='$prog'");
+$rows_check= mysqli_num_rows($rows_exam);
+if($rows_check > 0) {
 
+echo "<script language = 'javascript'>alert('Error! The Exam is already registered!')</script>";
 
+}else{
 
-  $sql ="INSERT INTO lexamtb (exam_name,lecturer_id,exam_no,actyear,status) VALUES ( '$qname ', '$user', '$code', '$active', '0')";
+  $sql ="INSERT INTO lexamtb (exam_name,program,exam_no,actyear,status) VALUES ( '$qname ', '$prog', '$code', '$active', '0')";
 
 
   if($conn->query($sql) === TRUE ){
@@ -198,7 +238,22 @@ if (isset($_POST["bcexam"])) {
                   }
                $conn->close();
 }
+}
+
 ?>
 
 </body>
+
+
+
+
+<script type="text/javascript">
+function confirm_pay() {
+
+  return confirm('Are You Sure?');
+
+  
+}
+</script>
+
 </html>

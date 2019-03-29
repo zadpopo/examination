@@ -4,7 +4,7 @@ include "php/nav.php";
 
 
 
- $query= "SELECT * FROM block";
+ $query= "SELECT * FROM block WHERE year ='$active'";
  $result= mysqli_query($conn,$query);
 
 
@@ -57,16 +57,50 @@ include "php/nav.php";
                                         <?php
                                         while($row = mysqli_fetch_array($result)){
                                         ?>
+ <?php 
+ 
+ $blocc =$row['block_id'];
 
+ $check_s= mysqli_query($conn, "SELECT * FROM enrolltbl WHERE enroll_date='$active' AND block_id='$blocc'");
+
+ $check_s_row= mysqli_num_rows($check_s);
+
+
+
+
+    ?>
 
                                          <td><?php echo $row['program']?> </td>
                                          <td><?php echo $row['lecturer']?> </td>
                                          <td><?php echo $row['block_name']?></td>
-                                         <td><?php echo $row['slots']?></td>
+                                         <td><?php echo  $check_s_row;?> / <?php echo $row['slots']?></td>
 
                                          <td>
 
-                                        <a href="action/eblock.php?id=<?php echo $row["block_id"]; ?>" onclick="return confirm_pay()"  class="btn btn-danger btn-sm" title="Delete" ><i class="far fa-trash-alt"></i></a>
+  <?php 
+
+  $list ="";
+
+  $del ="";
+
+  if ($check_s_row > 0) {
+
+    $list ="";
+    $del ='hidden';
+     
+  }else{
+
+$del ="";
+$list ="hidden";
+
+  }
+
+
+  ?>
+
+                                        <a href="action/eblock.php?id=<?php echo $row["block_id"]; ?>" onclick="return confirm_pay()" <?php echo $del?> class="btn btn-danger btn-sm" title="Delete" ><i class="far fa-trash-alt"></i></a>
+
+                                        <a href="bstudent_list.php?id=<?php echo $row["block_id"]; ?>" <?php echo $list?> class="btn btn-primary btn-sm" title="List" ><i class="fas fa-list"></i></a>
 
                                          </td>
                                      
