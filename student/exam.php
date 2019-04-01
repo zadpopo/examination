@@ -2,8 +2,6 @@
   <?php 
   include ("php/nav.php");
 
-
-
   if ($_GET) {
     $id = $_GET['id'];
 
@@ -31,6 +29,28 @@
 
 <h2 style="color: skyblue"><b>Exam Sheet</b><h2> 
 
+  <div id="response"></div>
+
+<script type="text/javascript">
+ var x = setInterval(fun1,1000);
+ setTimeout('xx()',60000);
+ function fun1(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET","response.php",false);
+  xmlhttp.send(null);
+  var str = document.getElementById("response").innerHTML=xmlhttp.responseText;
+  /*if(str.slice(7,9) == "58"){
+   window.location.href='login.php';
+  }*/
+
+ }
+ function xx(){
+   clearInterval(x);
+   window.location.href='result.php?id=<?php echo $id?>';
+   //clearInterval(y);
+  }
+  
+</script>
 
 </center>
 

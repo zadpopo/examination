@@ -89,7 +89,14 @@
                                         
                                         <td  style="color: white;">
 
-                                        <a href="exam.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button ?> class="btn btn-info btn-sm "><b>Take</b></a>
+
+
+                                        <form action="" method="POST">
+
+                                         <input type="hidden" name='exam' value="<?php echo $row["exam_no"]; ?>"> 
+                                        <button type="submit" name="take"  onclick="return confirm_pay()" <?php echo   $button ?> class="btn btn-info btn-sm "><b>Take</b></button>
+
+                                        </form>
 
 
                                         <a href="result.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button2 ?>  class="btn btn-warning btn-sm "><b>Result</b></a>
@@ -104,5 +111,38 @@
   ?>                         
 
   </tbody>
+
+<?php 
+
+if (isset($_POST['take'])) {
+
+
+$exam= $_POST['exam'];
+  
+$duration="";
+
+
+ $query= "SELECT * FROM timetbl WHERE exam_id ='$exam'";
+ $result= mysqli_query($conn,$query);
+
+
+ while($row = mysqli_fetch_array($result)){
+
+$duration=$row["duration"];
+ }
+
+$_SESSION["duration"] = $duration;
+$_SESSION["start_time"] =date("Y-m-d H:i:s");
+
+$end_time=$end_time=date('Y-m-d H:i:s', strtotime('+'.$_SESSION["duration"].'minutes', strtotime($_SESSION["start_time"])));
+
+$_SESSION["end_time"]=$end_time;
+
+
+echo "<script>window.location.href ='exam.php?id=$exam';</script>";
+
+}
+
+?>
 </div>
 </div>

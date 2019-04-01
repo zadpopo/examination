@@ -3,13 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Student Registration</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
 
   <title>Examination Sheet</title>
 </head>
@@ -52,7 +46,111 @@
 Add Question
 </button>
 
+<?php 
+
+$button='';
+$button1='hidden';
+
+ $check_time= mysqli_query($conn, "SELECT * FROM timetbl WHERE exam_id='$id'");
+ $check_time_row= mysqli_num_rows($check_time);
+ if($check_time_row > 0) {
+
+
+
+  $s2= "SELECT * FROM timetbl WHERE exam_id='$id'";
+  $r2 = $conn->query($s2);
+  $d2= $r2->fetch_assoc();
+
+  $timee= $d2['duration']; 
+
+
+  
+
+
+  $button = 'hidden style="cursor: not-allowed;"';
+  $button1 ='';
+ }else{
+
+  $timee='';
+
+ }
+
+
+
+?>
+
+
+
+
+<button type="button" <?php echo $button?>class="btn btn-warning btn-sm" data-toggle="modal" data-target="#timer">
+Add Timer
+</button>
+
 </center>
+
+
+<!-- Modal  questions-->
+<div class="modal fade" id="timer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel" >Add Timer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+ <form action="" method="POST">
+
+
+  <div class="form-group row" >
+    <label for="" class="col-sm-3 col-form-label">Minutes</label>
+    <div class="col-sm-8">
+    <input type="text" class="form-control" id="" name="min" required placeholder="">
+  </div>
+</div>
+
+
+ <div class="modal-footer">
+        <button  type="submit" name="qtime" class="btn btn-warning">Add</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php 
+
+if (isset($_POST['qtime'])) {
+
+  $min=$_POST['min'];
+  
+
+       $sql= "INSERT INTO timetbl (exam_id,duration) VALUES ('$id', '$min')";
+
+           
+            if($conn->query($sql) === TRUE ){
+          
+                  echo "<script language = 'javascript'>alert('Timer is set!')</script>";
+                  echo "<script>window.location.href = 'iexam.php?id=$id';</script>";
+                  }else{
+                  echo "Error" . $sql . '' . $conn->connect_error;
+                  }
+               $conn->close();
+
+}
+
+
+
+
+
+?>
+
 
 
 
@@ -147,7 +245,101 @@ Add Question
   </div>
 </div>
 
+<div class="container col-sm-8">
+  <div class="alert alert-warning" role="alert">
+    <center>
+<?php
 
+  $s1= "SELECT * FROM lexamtb WHERE exam_no ='$id'";
+  $r1 = $conn->query($s1);
+  $d1= $r1->fetch_assoc();
+
+
+
+?>
+
+<?php echo $d1['program'];?> <?php echo $d1['exam_name']; ?> (<?php echo $timee; ?> minutes)
+<button type="button" id="<?php echo $id ?>"   <?php echo $button1?> class="btn btn-danger btn-sm tr"
+  data-toggle="modal" data-target="#">
+Edit Timer
+</button>
+
+
+    </center>
+
+    <div class="modal fade" id="mmin"role="dialog"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Timer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body "  id="bmin">
+         
+
+
+
+      </div>
+     
+    </div>
+  
+  </div>
+</div>
+
+
+
+
+<script>
+  $(document).ready(function(){
+    $('.tr').click(function(){
+      var exam_id = $(this).attr("id");
+      $.ajax({
+        url:"edittime.php",
+        method:"POST",
+        data:{exam_id:exam_id},
+        success:function(data){
+          $('#bmin').html(data);
+          $('#mmin').modal("show");
+        }
+      });
+      
+
+    });
+  });
+</script>
+
+<?php 
+
+if (isset($_POST['beditmin'])) {
+  
+  $emin= $_POST["editmin"];
+
+ $sql= "UPDATE timetbl SET duration ='$emin' WHERE exam_id ='$id'";
+
+  if($conn->query($sql) === TRUE ){
+          
+                  echo "<script language = 'javascript'>alert('Timer is reset!')</script>";
+                  echo "<script>window.location.href = 'iexam.php?id=$id';</script>";
+                  }else{
+                  echo "Error" . $sql . '' . $conn->connect_error;
+                  }
+               $conn->close();
+
+
+
+}
+
+
+?>
+
+
+
+</div>
+
+</div>
 
   
                  <div class=" table-sorting table-responsive-sm mx-auto table-light" style="width:80%">

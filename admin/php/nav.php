@@ -183,3 +183,14 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
         </nav>
       </form>
         
+
+
+      <script type="text/javascript">
+function confirm_pay() {
+
+  return confirm('Are You Sure?');
+
+  
+}
+</script>
+

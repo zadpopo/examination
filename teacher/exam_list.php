@@ -49,6 +49,7 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
                      <tr>
                                             <th style="width:1%">#</th>
                                             <th style="width:40%">Exam</th>
+                                            <th style="width:5%">timer</th>
                                             <th style="width:20%">Program</th>
                                           
                                             <th style="width:10%">Action</th>                         
@@ -87,6 +88,23 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
                                         <td ><?php echo $counter; ?></td>
                                         <td><?php echo $row["exam_name"]; ?></td>
+<?php
+
+$eid = $row["exam_no"];
+
+
+  $s2= "SELECT * FROM timetbl WHERE exam_id = '$eid'";
+
+  $r2 = $conn->query($s2);
+
+  $d2= $r2->fetch_assoc();
+
+  $dura = $d2['duration'];
+
+
+
+?>
+                                        <td><?php echo  $dura ?></td>
                                         <td><?php echo $row["program"]; ?></td>
                                
                                         
@@ -96,14 +114,7 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
                                         <a href="iexam.php?id=<?php echo $row["exam_no"]; ?>" 	 onclick="return confirm_pay()"  <?php echo $button?> class="btn btn-secondary btn-sm "><i class="far fa-edit"></i></a>
 
-<?php 
 
-
-
-
-
-
-?>
                                         
 
                                         <a href="examact.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo $button?> class="btn btn-success btn-sm "><i class="fas fa-toggle-on"></i></a>
