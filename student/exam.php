@@ -15,6 +15,29 @@
 
 
 }
+$status2 ="";
+$status ="hidden";
+
+
+$check_q= mysqli_query($conn, "SELECT * FROM examtbl WHERE exam_no='$id'");
+$rows_check_q= mysqli_num_rows($check_q);
+
+
+$check_a= mysqli_query($conn, "SELECT * FROM answertbl WHERE exam_no='$id' and stud_id='$user'");
+$rows_check_a= mysqli_num_rows($check_a);
+
+if ($rows_check_q == $rows_check_a ) {
+  
+  $status ="";
+  $status2 ="hidden";
+
+}
+
+
+
+
+
+
   ?>
   
 
@@ -29,7 +52,7 @@
 
 <h2 style="color: skyblue"><b>Exam Sheet</b><h2> 
 
-  <div id="response"></div>
+  <div id="response" <?php echo $status2 ?>></div>
 
 <script type="text/javascript">
  var x = setInterval(fun1,1000);
@@ -130,28 +153,7 @@
 <br>
 
 
-<?php
 
-$status ="hidden";
-
-$check_q= mysqli_query($conn, "SELECT * FROM examtbl WHERE exam_no='$id'");
-$rows_check_q= mysqli_num_rows($check_q);
-
-
-$check_a= mysqli_query($conn, "SELECT * FROM answertbl WHERE exam_no='$id' and stud_id='$user'");
-$rows_check_a= mysqli_num_rows($check_a);
-
-if ($rows_check_q == $rows_check_a ) {
-  
-  $status ="";
-}
-
-
-
-
-
-
- ?>
 
 <div class="alert alert-success" <?php echo $status ?> role="alert">
  <center><h3>Congratulation! You Successfully Answered All Questions.</h3></center> 

@@ -65,7 +65,7 @@
 
 	$button= '';  
 
-  $check_exam = mysqli_query($conn, "SELECT * FROM answertbl WHERE exam_no='$exam_no' AND stud_id='$user' ");
+  $check_exam = mysqli_query($conn, "SELECT * FROM evaltbl WHERE exam_no='$exam_no' AND stud_no='$user' ");
   $check_exam_row = mysqli_num_rows($check_exam);
 
     if($check_exam_row > 0) {
@@ -91,12 +91,10 @@
 
 
 
-                                        <form action="" method="POST">
+                                   
+                                          <a href="eval.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button ?>  class="btn btn-primary btn-sm "><b>Take</b></a>
 
-                                         <input type="hidden" name='exam' value="<?php echo $row["exam_no"]; ?>"> 
-                                        <button type="submit" name="take"  onclick="return confirm_pay()" <?php echo   $button ?> class="btn btn-info btn-sm "><b>Take</b></button>
-
-                                        </form>
+                                      
 
 
                                         <a href="result.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button2 ?>  class="btn btn-warning btn-sm "><b>Result</b></a>
@@ -112,37 +110,6 @@
 
   </tbody>
 
-<?php 
 
-if (isset($_POST['take'])) {
-
-
-$exam= $_POST['exam'];
-  
-$duration="";
-
-
- $query= "SELECT * FROM timetbl WHERE exam_id ='$exam'";
- $result= mysqli_query($conn,$query);
-
-
- while($row = mysqli_fetch_array($result)){
-
-$duration=$row["duration"];
- }
-
-$_SESSION["duration"] = $duration;
-$_SESSION["start_time"] =date("Y-m-d H:i:s");
-
-$end_time=$end_time=date('Y-m-d H:i:s', strtotime('+'.$_SESSION["duration"].'minutes', strtotime($_SESSION["start_time"])));
-
-$_SESSION["end_time"]=$end_time;
-
-
-echo "<script>window.location.href ='exam.php?id=$exam';</script>";
-
-}
-
-?>
 </div>
 </div>
