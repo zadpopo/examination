@@ -151,19 +151,13 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     </a>
                 </li>
                 
+              
                 <li>
-                   <a hidden href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
+                    <a href="result.php">
+                      <br>
+                       <i class="fa fa-poll fa-1.5x"></i>
                         <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a hidden href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Documentation
+                            Result
                         </span>
                     </a>
                 </li>

@@ -44,6 +44,11 @@ if ($error == '') {
 $rows= mysqli_query($conn, "SELECT * FROM examtbl where exam_no ='$id'");
 $qrows= mysqli_num_rows($rows);
 
+
+$rowsa= mysqli_query($conn, "SELECT * FROM answertbl where exam_no ='$id' AND stud_id ='$user'");
+$qrowsa= mysqli_num_rows($rowsa);
+
+$Unanswered = $qrows- $qrowsa;
   ?>
   
   
@@ -73,6 +78,12 @@ $qrows= mysqli_num_rows($rows);
     <tr>
       <th scope="row" style="color: red">Mistake</th>
       <td style="color: red"><b><?php echo $er?></b></td>
+      
+    </tr>
+
+     <tr>
+      <th scope="row" style="color: gray">Unanswered</th>
+      <td style="color: gray"><b><?php echo $Unanswered?></b></td>
       
     </tr>
     <tr>

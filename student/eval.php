@@ -256,7 +256,7 @@ out of the classroom.</td>
 
                </tr>
 
-        <td><b>COMMENTS & SUGGESTIONS: (Optional) </b></td>
+        <td><b>REPORTS, COMMENTS AND SUGGESTIONS: (Optional) </b></td>
                      <td></td>
                      <td></td>
                      <td></td>
@@ -279,12 +279,20 @@ out of the classroom.</td>
 </table>
 
  <div class="modal-footer">
-        <button type="submit" name="beval" class="btn btn-primary">Submit</button>
+        <button type="submit" name="beval"  onclick="return confirm_pay()" class="btn btn-primary">Submit</button>
    
       </div>
 
    </form>                        
-                
+ <script type="text/javascript">
+function confirm_pay() {
+
+  return confirm('Are You Sure?');
+
+  
+}
+</script>
+               
 
 </body>
 </html>
