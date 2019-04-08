@@ -116,6 +116,7 @@ $prog= $_POST["prog"];
 
     <?php 
 
+
     $stud_no =  $row["student_number"]; 
     $button2 = '';
     $button ='';
@@ -132,12 +133,7 @@ $prog= $_POST["prog"];
 
   $button2='hidden style="cursor: not-allowed;"';
 
- }
-
-
-
-
-
+ 
     ?>
 
 
@@ -203,16 +199,23 @@ $prog= $_POST["prog"];
 if (isset($_POST['es'])) {
 
   $stud_no = $_POST["stud_no"];
+
+  $old = $_POST["old"];
   $tf = $_POST["tf"];
   $bloc_id = $_POST["bloc_id"];
   $prog = $_POST["prog"];
+  $newbal = $old + $tf;
+  date_default_timezone_set ("Asia/Manila");
+  $datee = date("Y-m-d");
 
 
 
-      $sql= "UPDATE studenttbl SET balance ='$tf' WHERE student_number= '$stud_no'";
+      $sql= "INSERT INTO enrolltbl (enroll_date, datee, student_number, program, block_id, tuition) VALUES ('$active','$datee', '$stud_no', '$prog', '$bloc_id', '$tf')";
 
 
-      mysqli_query($conn, "INSERT INTO enrolltbl (enroll_date, student_number, program, block, tuition) VALUES ('$active', '$stud_no', '$prog', '$bloc', '$tf')");
+
+      mysqli_query($conn, "UPDATE studenttbl SET balance ='$newbal' WHERE student_number= '$stud_no'");
+
 
 
 
@@ -294,7 +297,9 @@ $check_or_row= mysqli_num_rows($check_or);
        echo "<script language = 'javascript'>alert('Failed!! The Transaction is already recorded!!')</script>";
 }else{
 
-      $sql= "INSERT INTO `transactiontbl` (`description`, `receipt`, `amount`, `trans_date`) VALUES ('$des', '$or', '$amount', '$datee')";
+
+      $sql= "INSERT INTO `transactiontbl` (stud_id,`description`, `receipt`, `amount`, `trans_date`) VALUES ('$stud_no','$des', '$or', '$amount', '$datee')";
+
 
 
      mysqli_query($conn, "UPDATE studenttbl SET balance='$newbal' WHERE student_number= '$stud_no'");
@@ -321,6 +326,8 @@ $check_or_row= mysqli_num_rows($check_or);
 
 
 
+
+</body>
 
 
 
