@@ -3,7 +3,16 @@
 
 
 
-  $q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND status='1'";
+  $s2= "SELECT * FROM studenttbl WHERE student_number = '$user'";
+
+  $r2= $conn->query($s2);
+
+  $d2= $r2->fetch_assoc();
+
+  $prog = $d2['Program'];
+  
+
+  $q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND status='1' AND program='$prog'";
  
  $r1= mysqli_query($conn,$q1);
 

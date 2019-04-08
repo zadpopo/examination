@@ -87,7 +87,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
 <div class="form-group row">
     <label for="" class="col-sm-3 col-form-label"><span style=color:red; >*</span>Block</label>
     <div class="col-sm-8">
-       <select class="form-control" name="prog" id="bloc" required>
+       <select class="form-control" name="bloc_id" id="bloc" required>
           <option value=''>Select</option>
 
             <?php
@@ -102,7 +102,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
 
                     while  ($row = mysqli_fetch_array($r1)){
                      $block= $row["block_name"];
-                     echo "<option value='$block'>$block</option>";
+                     echo "<option value='$block_id'>$block</option>";
                    }
                     ?>
     </select>
@@ -111,22 +111,28 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
 
   <div class="form-group row">
     <label for="" class="col-sm-3 col-form-label"><span style=color:red; >*</span>Tuition Fee</label>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
 
-    	<input type="" id="slots" name="" required class="form-control" onChange="change_slot()">
+    	<input type="number" name="tf" required class="form-control">
 
 </div>
 
- <label for="" class="col-sm-3 col-form-label"><span style=color:red; >*</span>Payment</label>
-    <div class="col-sm-3">
-
-    	<input type="" id="slots" name="" required class="form-control" onChange="change_slot()">
-
-    </div>
   </div>
 
+  	<input type="hidden" value="<?php echo $stud_no?>" name="stud_no" required class="form-control">
+    <input type="hidden" value="<?php echo $prog?>" name="prog" required class="form-control">
 
 
+
+ <div class="modal-footer">
+ 		<button type="submit" name="es" class="btn btn-success">Enroll</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    
+      </div>
 
 
 </form>
+
+
+
+

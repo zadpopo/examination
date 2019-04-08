@@ -3,6 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
   <title>Examination Sheet</title>
 </head>
 <body>
@@ -64,10 +72,10 @@ Add Question
  <form action="" method="POST">
 
 
-  <div class="form-group row >
+  <div class="form-group row" >
     <label for="" class="col-sm-2 col-form-label">Question</label>
     <div class="col-sm-10">
-    <input type="text" class="form-control" id="" name="question" placeholder="example: 2 + 2 = ?">
+    <input type="text" class="form-control" id="" name="question" required placeholder="">
   </div>
 </div>
 
@@ -75,31 +83,57 @@ Add Question
 
   <div class="form-group">
     <label for="">Selections</label>
+    <em style="color: red;"><b>Click the checkbox for the right answer<b></em>
   </div>
 
   <div class="form-group row">
-    <label for="" class="col-sm-2 col-form-label">A</label>
+
+    <div class="col-sm-1">
+    <input type="checkbox" name="ans1" value="a" onclick="FillAdd(this.form)">
+    </div>
+
+    <label for="" class="col-sm-1 col-form-label">A</label>
+
+
+
+    
     <div class="col-sm-10">
-    <input type="text" name="a" class="form-control" id="" placeholder="3">
+    <input type="text" name="a" class="form-control" required id="" placeholder="">
   </div>
 </div>
 <div class="form-group row">
-    <label for="" class="col-sm-2 col-form-label">B</label>
+
+ <div class="col-sm-1">
+    <input type="checkbox" name="ans2" value="b" onclick="FillAdd(this.form)">
+    </div>
+    <label for="" class="col-sm-1 col-form-label">B</label>
+
+    
+
     <div class="col-sm-10">
-    <input type="text"  name="b" class="form-control" id="" placeholder="10">
+    <input type="text"  name="b" class="form-control" required id="" placeholder="">
   </div>
 </div>
 <div class="form-group row">
-    <label for="" class="col-sm-2 col-form-label">C</label>
+
+
+
+ <div class="col-sm-1">
+    <input type="checkbox" name="ans3" value="c" onclick="FillAdd(this.form)">
+    </div>
+
+    <label for="" class="col-sm-1 col-form-label">C</label>
+
+
     <div class="col-sm-10">
-    <input type="text" name="c" class="form-control" id="" placeholder="4">
+    <input type="text" name="c" class="form-control" required id="" placeholder="">
   </div>
 </div>
 
-<div class="form-group row">
+<div class="form-group row" hidden>
     <label for="" class="col-sm-2 col-form-label">Answer</label>
     <div class="col-sm-10">
-    <input type="text"  name="answer" class="form-control" id="" placeholder="C">
+    <input type="text"  name="answer" class="form-control" id="answer" required>
   </div>
 </div>
 </div>
@@ -122,7 +156,8 @@ Add Question
                      <tr>
                                             <th style="width:1%">#</th>
                                             <th style="width:50%">Question</th>
-                                            <th style="width:45%">Answer</th>
+                                            <th style="width:5%"><i class="fas fa-check"></i></th>
+                                            <th style="width:45%">Choices</th>
                                             <th style="width:1%">Action</th>                         
                                        
                                             
@@ -142,8 +177,15 @@ Add Question
 
                                         <td><?php echo $counter?></td>
                                         <td><?php echo $row["question"]; ?></td>
-                                        <td><?php echo $row["answer"]; ?></td>
                                         
+                                        <td><?php echo $row["answer"]; ?></td>
+                                        <td>a) <?php echo $row["a"]; ?> <br>
+                                            b) <?php echo $row["b"]; ?> <br>
+                                            c) <?php echo $row["c"]; ?> <br>
+                                        </td>
+
+
+
                                         <form method="POST" action="">
 
                                         <input type="hidden" name="qid" value="<?php echo $row["exam_id"]; ?>">
@@ -161,6 +203,7 @@ Add Question
 
 
   <tr>
+  <td></td>
   <td></td>
   <td></td>
 
@@ -242,12 +285,47 @@ if(isset($_POST["qadd"])){
 
 
 
+
 <script type="text/javascript">
 function confirm_pay() {
 
   return confirm('Are You Sure?');
 
   
+}
+</script>
+
+
+   <script type="text/javascript">
+  function FillAdd(f) {
+
+ 
+
+  if(f.ans1.checked == true) {
+    f.answer.value = f.ans1.value;
+  }
+
+
+  if(f.ans2.checked == true){
+    f.answer.value = f.ans2.value;
+
+  }
+
+   if(f.ans3.checked == true){
+    f.answer.value = f.ans3.value;
+ 
+  }
+
+
+  if(f.ans1.checked == true && f.ans2.checked == true ||f.ans1.checked == true && f.ans3.checked == true || f.ans2.checked == true && f.ans3.checked == true){
+
+      alert("Error! 2 or more answers didnt allowed ");
+      f.ans1.checked = false;
+      f.ans2.checked = false;
+      f.ans3.checked = false;
+
+      document.getElementById('answer').value='' ;
+  }
 }
 </script>
 

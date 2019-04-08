@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2019 at 03:49 AM
+-- Generation Time: Mar 29, 2019 at 03:39 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -42,7 +42,33 @@ CREATE TABLE `answertbl` (
 
 INSERT INTO `answertbl` (`answer_id`, `exam_no`, `q_id`, `stud_id`, `final_ans`) VALUES
 (1, '2019-65767715', '1', '2019-student', 'b'),
-(2, '2019-65767715', '2', '2019-student', 'a');
+(2, '2019-65767715', '2', '2019-student', 'a'),
+(3, '2019-35474353', '3', '2019-student', 'c');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `block`
+--
+
+CREATE TABLE `block` (
+  `block_id` int(11) NOT NULL,
+  `program` varchar(255) NOT NULL,
+  `block_name` varchar(225) NOT NULL,
+  `slots` varchar(255) NOT NULL,
+  `year` varchar(255) NOT NULL,
+  `lecturer` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `block`
+--
+
+INSERT INTO `block` (`block_id`, `program`, `block_name`, `slots`, `year`, `lecturer`) VALUES
+(4, 'Criminology', 'Block 1', '50', '2019-season1', 'Tran, Ming Nhat'),
+(5, 'Criminology', 'block 2', '30', '2019-season1', 'Tran, Ming Nhat'),
+(6, 'Rad Tech', 'Block1', '30', '2019-season1', 'Tran, Ming Nhat'),
+(7, 'Information Technology', 'test', '10', '2019-season1', 'test');
 
 -- --------------------------------------------------------
 
@@ -77,6 +103,28 @@ INSERT INTO `emptbl` (`emp_id`, `e_id`, `fname`, `mname`, `lname`, `emp_bday`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `enrolltbl`
+--
+
+CREATE TABLE `enrolltbl` (
+  `enroll_id` int(11) NOT NULL,
+  `enroll_date` varchar(255) NOT NULL,
+  `student_number` varchar(255) NOT NULL,
+  `block_id` varchar(255) NOT NULL,
+  `tuition` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `enrolltbl`
+--
+
+INSERT INTO `enrolltbl` (`enroll_id`, `enroll_date`, `student_number`, `block_id`, `tuition`) VALUES
+(2, '2019-season1', '2019-student', '5', '500.00'),
+(3, '2019-season1', '2019-4254', '7', '1.00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `examtbl`
 --
 
@@ -97,7 +145,10 @@ CREATE TABLE `examtbl` (
 
 INSERT INTO `examtbl` (`exam_id`, `exam_no`, `question`, `answer`, `a`, `b`, `c`, `points`) VALUES
 (1, '2019-65767715', '2-2', 'c', '1', '2', '0', '1'),
-(2, '2019-65767715', '12-1', 'a', '11', '161', '1', '1');
+(2, '2019-65767715', '12-1', 'a', '11', '161', '1', '1'),
+(3, '2019-35474353', 'who is tran?', 'a', 'weak', 'noob', 'shit', '1'),
+(4, '2019-54396675', 'test', 'b', 'test1', 'test2', 'test3', '1'),
+(6, '2019-54396675', 'assa', 'c', 'apsa', 'tiger', 'toprank', '1');
 
 -- --------------------------------------------------------
 
@@ -108,7 +159,7 @@ INSERT INTO `examtbl` (`exam_id`, `exam_no`, `question`, `answer`, `a`, `b`, `c`
 CREATE TABLE `lexamtb` (
   `lexamtbl_id` int(11) NOT NULL,
   `exam_name` varchar(255) NOT NULL,
-  `lecturer_id` varchar(225) NOT NULL,
+  `program` varchar(225) NOT NULL,
   `exam_no` varchar(255) NOT NULL,
   `actyear` varchar(225) NOT NULL,
   `status` enum('0','1') NOT NULL
@@ -118,10 +169,12 @@ CREATE TABLE `lexamtb` (
 -- Dumping data for table `lexamtb`
 --
 
-INSERT INTO `lexamtb` (`lexamtbl_id`, `exam_name`, `lecturer_id`, `exam_no`, `actyear`, `status`) VALUES
-(1, 'test ', '2019-lecturer', '2019-65767715', '111-111', '1'),
-(2, 'test1 ', '2019-lecturer', '2019-71247729', '111-111', '0'),
-(3, 'dsfsdfsdf ', '2019-lecturer', '2019-26951112', '111-111', '0');
+INSERT INTO `lexamtb` (`lexamtbl_id`, `exam_name`, `program`, `exam_no`, `actyear`, `status`) VALUES
+(8, 'quiz 1 ', 'Criminology', '2019-35474353', '2019-season1', '1'),
+(9, 'quiz 1 ', 'Nurse', '2019-54396675', '2019-season1', '0'),
+(10, 'quiz 1 ', 'Information Technology', '2019-41429791', '2019-season1', '0'),
+(11, 'quiz 1 ', 'Business Administrator', '2019-29292472', '2019-season1', '0'),
+(12, 'quiz 1 ', 'Rad Tech', '2019-62842523', '2019-season1', '0');
 
 -- --------------------------------------------------------
 
@@ -187,17 +240,61 @@ CREATE TABLE `studenttbl` (
   `Program` varchar(225) NOT NULL,
   `Gender` varchar(255) NOT NULL,
   `TelPhone` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL
+  `Password` varchar(255) NOT NULL,
+  `balance` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `studenttbl`
 --
 
-INSERT INTO `studenttbl` (`stud_id`, `student_number`, `FirstName`, `MiddleName`, `LastName`, `Address`, `EnrolledSchool`, `Program`, `Gender`, `TelPhone`, `Password`) VALUES
-(1, '2019-student', 'Erick', 'M', 'N', 'Manila', 'enrolledschool', 'radtect', 'male', '652981905606', 'c3R1ZGVudA=='),
-(15, '2019-4254', 'rose', 'mary', 'tran', 'manila', 'informatics', 'Information Technology', 'Female', '02020202', 'dHJhbg=='),
-(16, '2019-5855', 'test1', 'test1', 'test1', 'test1', 'test1', 'Information Technology', 'Male', '212131', 'c3R1ZGVudA==');
+INSERT INTO `studenttbl` (`stud_id`, `student_number`, `FirstName`, `MiddleName`, `LastName`, `Address`, `EnrolledSchool`, `Program`, `Gender`, `TelPhone`, `Password`, `balance`) VALUES
+(1, '2019-student', 'Erick', 'M', 'N', 'Manila', 'enrolledschool', 'Criminology', 'male', '652981905606', 'c3R1ZGVudA==', '489.00'),
+(15, '2019-4254', 'rose', 'mary', 'tran', 'manila', 'informatics', 'Information Technology', 'Female', '02020202', 'dHJhbg==', '0.00'),
+(16, '2019-5855', 'test1', 'test1', 'test1', 'test1', 'test1', 'Information Technology', 'Male', '212131', 'c3R1ZGVudA==', '0.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timetbl`
+--
+
+CREATE TABLE `timetbl` (
+  `timer_id` int(11) NOT NULL,
+  `exam_id` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `timetbl`
+--
+
+INSERT INTO `timetbl` (`timer_id`, `exam_id`, `duration`) VALUES
+(2, '', '30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactiontbl`
+--
+
+CREATE TABLE `transactiontbl` (
+  `trans_id` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `receipt` varchar(225) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `trans_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactiontbl`
+--
+
+INSERT INTO `transactiontbl` (`trans_id`, `description`, `receipt`, `amount`, `trans_date`) VALUES
+(2, 'Down payment', '1', '1.00', '2019-03-21 00:00:00'),
+(9, 'Full payment', '2', '2.00', '2019-03-21 00:00:00'),
+(10, 'Full payment', '23d', '2.00', '2019-03-21 00:00:00'),
+(11, 'Down payment', 'dsdasda', '1.00', '2019-03-25 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -216,13 +313,10 @@ CREATE TABLE `yeartbl` (
 --
 
 INSERT INTO `yeartbl` (`year_id`, `year`, `status`) VALUES
-(1, '12321-23123', '0'),
-(2, '2019-2020', '0'),
-(5, '2021-2022', '0'),
-(6, '2022-2023', '0'),
-(7, '1990-1991', '0'),
-(8, '2024-2025', '0'),
-(9, '111-111', '1');
+(10, '2019-season1', '1'),
+(11, '2019-season2', '0'),
+(12, '2019-season3', '0'),
+(13, '2019-season4', '0');
 
 --
 -- Indexes for dumped tables
@@ -235,10 +329,22 @@ ALTER TABLE `answertbl`
   ADD PRIMARY KEY (`answer_id`);
 
 --
+-- Indexes for table `block`
+--
+ALTER TABLE `block`
+  ADD PRIMARY KEY (`block_id`);
+
+--
 -- Indexes for table `emptbl`
 --
 ALTER TABLE `emptbl`
   ADD PRIMARY KEY (`emp_id`);
+
+--
+-- Indexes for table `enrolltbl`
+--
+ALTER TABLE `enrolltbl`
+  ADD PRIMARY KEY (`enroll_id`);
 
 --
 -- Indexes for table `examtbl`
@@ -271,6 +377,18 @@ ALTER TABLE `studenttbl`
   ADD PRIMARY KEY (`stud_id`);
 
 --
+-- Indexes for table `timetbl`
+--
+ALTER TABLE `timetbl`
+  ADD PRIMARY KEY (`timer_id`);
+
+--
+-- Indexes for table `transactiontbl`
+--
+ALTER TABLE `transactiontbl`
+  ADD PRIMARY KEY (`trans_id`);
+
+--
 -- Indexes for table `yeartbl`
 --
 ALTER TABLE `yeartbl`
@@ -284,7 +402,13 @@ ALTER TABLE `yeartbl`
 -- AUTO_INCREMENT for table `answertbl`
 --
 ALTER TABLE `answertbl`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `block`
+--
+ALTER TABLE `block`
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `emptbl`
@@ -293,16 +417,22 @@ ALTER TABLE `emptbl`
   MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `enrolltbl`
+--
+ALTER TABLE `enrolltbl`
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `examtbl`
 --
 ALTER TABLE `examtbl`
-  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `lexamtb`
 --
 ALTER TABLE `lexamtb`
-  MODIFY `lexamtbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `lexamtbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `logtbl`
@@ -323,10 +453,22 @@ ALTER TABLE `studenttbl`
   MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT for table `timetbl`
+--
+ALTER TABLE `timetbl`
+  MODIFY `timer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `transactiontbl`
+--
+ALTER TABLE `transactiontbl`
+  MODIFY `trans_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `yeartbl`
 --
 ALTER TABLE `yeartbl`
-  MODIFY `year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
