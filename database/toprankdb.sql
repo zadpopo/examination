@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Generation Time: Apr 02, 2019 at 10:34 AM
+
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -41,9 +43,11 @@ CREATE TABLE `answertbl` (
 --
 
 INSERT INTO `answertbl` (`answer_id`, `exam_no`, `q_id`, `stud_id`, `final_ans`) VALUES
+
 (13, '2019-35474353', '3', '2019-student', 'a'),
 (14, '2019-35589872', '7', '2019-student', 'a'),
 (15, '2019-35589872', '9', '2019-student', 'c');
+
 
 -- --------------------------------------------------------
 
@@ -125,6 +129,7 @@ INSERT INTO `enrolltbl` (`enroll_id`, `enroll_date`, `student_number`, `block_id
 -- --------------------------------------------------------
 
 --
+
 -- Table structure for table `evaltbl`
 --
 
@@ -166,6 +171,7 @@ INSERT INTO `evaltbl` (`eval_id`, `stud_no`, `exam_no`, `active`, `a1`, `a2`, `a
 -- --------------------------------------------------------
 
 --
+
 -- Table structure for table `examtbl`
 --
 
@@ -189,9 +195,11 @@ INSERT INTO `examtbl` (`exam_id`, `exam_no`, `question`, `answer`, `a`, `b`, `c`
 (2, '2019-65767715', '12-1', 'a', '11', '161', '1', '1'),
 (3, '2019-35474353', 'who is tran?', 'a', 'weak', 'noob', 'shit', '1'),
 (4, '2019-54396675', 'test', 'b', 'test1', 'test2', 'test3', '1'),
+
 (6, '2019-54396675', 'assa', 'c', 'apsa', 'tiger', 'toprank', '1'),
 (7, '2019-35589872', 'how many power ranger in original', 'a', '5', '4', '3', '1'),
 (9, '2019-35589872', 'what is the color of pikachu', 'c', 'red', 'blue', 'yellow', '1');
+
 
 -- --------------------------------------------------------
 
@@ -217,8 +225,10 @@ INSERT INTO `lexamtb` (`lexamtbl_id`, `exam_name`, `program`, `exam_no`, `actyea
 (9, 'quiz 1 ', 'Nurse', '2019-54396675', '2019-season1', '0'),
 (10, 'quiz 1 ', 'Information Technology', '2019-41429791', '2019-season1', '0'),
 (11, 'quiz 1 ', 'Business Administrator', '2019-29292472', '2019-season1', '0'),
+
 (12, 'quiz 1 ', 'Rad Tech', '2019-62842523', '2019-season1', '0'),
 (13, 'test2 ', 'Criminology', '2019-35589872', '2019-season1', '1');
+
 
 -- --------------------------------------------------------
 
@@ -314,10 +324,12 @@ CREATE TABLE `timetbl` (
 --
 
 INSERT INTO `timetbl` (`timer_id`, `exam_id`, `duration`) VALUES
+
 (3, '2019-54396675', '1'),
 (5, '2019-62842523', '3'),
 (7, '2019-35474353', '1'),
 (8, '2019-35589872', '1');
+
 
 -- --------------------------------------------------------
 
@@ -394,12 +406,14 @@ ALTER TABLE `enrolltbl`
   ADD PRIMARY KEY (`enroll_id`);
 
 --
+
 -- Indexes for table `evaltbl`
 --
 ALTER TABLE `evaltbl`
   ADD PRIMARY KEY (`eval_id`);
 
 --
+
 -- Indexes for table `examtbl`
 --
 ALTER TABLE `examtbl`
@@ -455,7 +469,9 @@ ALTER TABLE `yeartbl`
 -- AUTO_INCREMENT for table `answertbl`
 --
 ALTER TABLE `answertbl`
+
   MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 
 --
 -- AUTO_INCREMENT for table `block`
@@ -476,6 +492,7 @@ ALTER TABLE `enrolltbl`
   MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+
 -- AUTO_INCREMENT for table `evaltbl`
 --
 ALTER TABLE `evaltbl`
@@ -487,11 +504,14 @@ ALTER TABLE `evaltbl`
 ALTER TABLE `examtbl`
   MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
+
 --
 -- AUTO_INCREMENT for table `lexamtb`
 --
 ALTER TABLE `lexamtb`
+
   MODIFY `lexamtbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 
 --
 -- AUTO_INCREMENT for table `logtbl`
@@ -515,7 +535,9 @@ ALTER TABLE `studenttbl`
 -- AUTO_INCREMENT for table `timetbl`
 --
 ALTER TABLE `timetbl`
+
   MODIFY `timer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 
 --
 -- AUTO_INCREMENT for table `transactiontbl`

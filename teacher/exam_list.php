@@ -49,7 +49,9 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
                      <tr>
                                             <th style="width:1%">#</th>
                                             <th style="width:40%">Exam</th>
+
                                             <th style="width:5%">timer</th>
+
                                             <th style="width:20%">Program</th>
                                           
                                             <th style="width:10%">Action</th>                         
@@ -88,6 +90,7 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
                                         <td ><?php echo $counter; ?></td>
                                         <td><?php echo $row["exam_name"]; ?></td>
+
 <?php
 
 $eid = $row["exam_no"];
@@ -107,6 +110,7 @@ $program =$row["program"];
 
 ?>
                                         <td><?php echo  $dura ?></td>
+
                                         <td><?php echo $row["program"]; ?></td>
                                
                                         

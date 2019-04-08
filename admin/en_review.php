@@ -1,47 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Review</title>
+</head>
+<body>
 <?php 
 include "php/nav.php";
-
-
 
 
  $query= "SELECT * FROM block WHERE year ='$active'";
  $result= mysqli_query($conn,$query);
 
 
-
-
 ?>
-
-
-
-
 
 
  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
  
 
-
+<body>
 <div class="container">
 
-  	<br>
+    <br>
 
-<div class="card-deck" >
+<div class="card-deck " >
   <div class="card">
  
-    <div class="card-body">
+    <div class="card-body ">
      <center> <h5 class="card-title">Set Review</h5></center>
      <center><button type="submit" class="btn btn-warning btn-sm" name="review" data-toggle="modal" data-target="#creview">
   Create Review
 </button></center>
 
     
-                 
-
 <br>
 
  
  <div class="table-sorting table-responsive-sm mx-auto" >
-                                        <table class="table table-striped table-bordered"  id="tSortable20">
+                                        <table class="table table-bordered table-light table-striped" id="tSortable20">
                                         <thead class="thead-dark">   
 
 
@@ -161,8 +157,6 @@ $list ="hidden";
 
 
 
-
-
     </select>
     </div>
   </div>
@@ -225,7 +219,7 @@ $slot = $_POST["slot"];
 
 </body>
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" ></script>
  <script>
       $(document).ready(function() {
    
@@ -245,4 +239,18 @@ function confirm_pay() {
   
 }
 </script>
+
+<div class="fixed-bottom">
+  
+<?php
+
+include("../php/footer_fit.php");
+
+?>
+  
+</div>
+
+</body>
+</html>
+
 

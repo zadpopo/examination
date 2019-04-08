@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin Page</title>
 </head>
-<body style="background-image: url('../img/bgmain.jpg'); background-color: white; background-origin:content-box, content-box; background-size: cover; background-repeat: no-repeat"; >
+<body style="background-image: url('../img/112.jpg'); background-color: white; background-size: cover; background-repeat: no-repeat; max-width: 100%; height:auto;"; >
 
 
   <?php 
@@ -52,12 +54,9 @@ $cardtest = "d-none";
 ?>
 
 
-
-
-
   <div class="testing" style="text-align: bottom"><h5></h5>
     <h6> </h6>
-    <img src="../img/awards.png">
+   
 
 <style>
   .testing{
@@ -69,8 +68,32 @@ $cardtest = "d-none";
 </style>
 
   </div>
+<div>
+  
+<!-- Footer -->
+<footer class="page-footer font-small blue fixed-bottom">
+<style>
+  .page-footer{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: lightgray;
 
 
+  }
+
+
+</style>
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-dark">© 2019 Copyright:
+    <a href=""> The Gabage Team</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</div>
 
 
 

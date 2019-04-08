@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student List </title>
+</head>
+<body>
 <?php 
 include "php/nav.php";
-
-
-
 
 
  $query= "SELECT * FROM studenttbl";
@@ -25,7 +28,7 @@ include "php/nav.php";
 
 <div class="container">
 
-  	<br>
+    <br>
 
 <div class="card-deck" >
   <div class="card">
@@ -113,6 +116,7 @@ $prog= $_POST["prog"];
 
     <?php 
 
+
     $stud_no =  $row["student_number"]; 
     $button2 = '';
     $button ='';
@@ -129,12 +133,7 @@ $prog= $_POST["prog"];
 
   $button2='hidden style="cursor: not-allowed;"';
 
- }
-
-
-
-
-
+ 
     ?>
 
 
@@ -200,6 +199,7 @@ $prog= $_POST["prog"];
 if (isset($_POST['es'])) {
 
   $stud_no = $_POST["stud_no"];
+
   $old = $_POST["old"];
   $tf = $_POST["tf"];
   $bloc_id = $_POST["bloc_id"];
@@ -215,6 +215,7 @@ if (isset($_POST['es'])) {
 
 
       mysqli_query($conn, "UPDATE studenttbl SET balance ='$newbal' WHERE student_number= '$stud_no'");
+
 
 
 
@@ -296,7 +297,9 @@ $check_or_row= mysqli_num_rows($check_or);
        echo "<script language = 'javascript'>alert('Failed!! The Transaction is already recorded!!')</script>";
 }else{
 
+
       $sql= "INSERT INTO `transactiontbl` (stud_id,`description`, `receipt`, `amount`, `trans_date`) VALUES ('$stud_no','$des', '$or', '$amount', '$datee')";
+
 
 
      mysqli_query($conn, "UPDATE studenttbl SET balance='$newbal' WHERE student_number= '$stud_no'");
@@ -323,7 +326,9 @@ $check_or_row= mysqli_num_rows($check_or);
 
 
 
+
 </body>
+
 
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -334,6 +339,23 @@ $check_or_row= mysqli_num_rows($check_or);
 } );
   
  </script>
+
+ <!---footer--->
+<div class="fixed-bottom">
+  
+<?php
+
+include("../php/footer_fit.php");
+
+?>
+  
+</div>
+
+</body>
+</html>
+
+
+
 
 
 

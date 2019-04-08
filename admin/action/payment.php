@@ -1,10 +1,12 @@
 <?php
+
 include("../php/connections.php");
 
 $s1= "SELECT * FROM yeartbl WHERE status = '1'";
   $r1 = $conn->query($s1);
   $d1= $r1->fetch_assoc();
   $active = $d1['year'];
+
 
 if (isset($_POST['stud_no'])) {
   $stud_no = $_POST['stud_no'];
@@ -27,6 +29,7 @@ if (isset($_POST['stud_no'])) {
   $block_name= $d3['block_name'];
   
 }
+
  ?>
 
 
@@ -40,7 +43,10 @@ if (isset($_POST['stud_no'])) {
 <br>
 <br>
 
+
+
 <center><?php echo $prog;?> - <?php echo  $block_name;?></center>
+
 
 
 
