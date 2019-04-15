@@ -31,7 +31,9 @@
 
     <title></title>
   </head>
-  <body style=" background-color: black;">
+
+  <body style="background-image: url('../img/112.jpg'); background-color: white; background-size: cover; background-repeat: no-repeat">
+
 <?php
 
 include ("connections.php");
@@ -112,7 +114,9 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     
                 </li>
                 <li class="has-subnav">
+
                     <a href="result.php"><br>
+
                        <i class="fa fa-poll fa-1.5x"></i>
                         <span class="nav-text">
                             Result
@@ -120,6 +124,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     </a>
                     
                 </li>
+
 
                 <li class="has-subnav">
                     <a href="attendance.php"><br>
@@ -131,6 +136,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     
                 </li>
                
+
             </ul>
 
             <ul class="logout">

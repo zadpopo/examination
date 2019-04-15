@@ -6,8 +6,6 @@ if ($_GET) {
     $exam_id = $_GET['id'];
 }
 
-
-
 ?>
 
 

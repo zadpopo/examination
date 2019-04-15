@@ -1,3 +1,4 @@
+
 <?php 
 include 'php/nav.php';
 
@@ -11,11 +12,14 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 ?>
 
 
+
  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
 
 
 <div class="container">
 <br>
+
 
 
 <br>
@@ -26,7 +30,9 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
 
    <div class=" table-sorting table-responsive-sm mx-auto " style="width:95%">
+
                    <table class="table table-striped table-bordered table-light"  id="tSortable20">
+
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
@@ -83,7 +89,9 @@ $rows_done_count= mysqli_num_rows($rows_done);
 
                                   
                                        
+
          								  <td style="color: white;"><b style="color: black"><?php echo $rows_done_count;?>/<?php echo $rows_enroll_count;?></b> </td>
+
 
                                      <td><a href="eval.php?id=<?php echo $row["exam_no"]; ?>" class="btn btn-success btn-sm" title="evaluation" ><i class="fas fa-align-left"></i></a>
 
@@ -101,12 +109,13 @@ $rows_done_count= mysqli_num_rows($rows_done);
   ?>                         
 
   </tbody>
-	
+
 
 
 
 
 </div></div>
+
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
  <script>
       $(document).ready(function() {
@@ -115,3 +124,4 @@ $rows_done_count= mysqli_num_rows($rows_done);
 } );
   
  </script>
+

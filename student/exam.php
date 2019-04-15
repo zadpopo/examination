@@ -33,12 +33,14 @@ if ($rows_check_q == $rows_check_a ) {
 
 }
 
+
 $s2= "SELECT * FROM timetbl WHERE exam_id='$id'";
 $r2 = $conn->query($s2);
 $d2= $r2->fetch_assoc();
 $stime = $d2['duration'];
 
 $dtime = $stime  * 60000;  
+
 
   ?>
   
@@ -57,7 +59,9 @@ $dtime = $stime  * 60000;
 
 <h2><b style="color:white">Exam Sheet</b><h2> 
 
+
   <div id="response" style="color:white" <?php echo $status2 ?>></div>
+
 
 <script type="text/javascript">
  var x = setInterval(fun1,1000);

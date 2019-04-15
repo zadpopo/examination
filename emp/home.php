@@ -8,34 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="orbitanim.css">
 
-    <title>Teacher</title>
+
+
+    <title>Employee Page</title>
 
   </head>
   <body>
-   <div class="container mx-auto">
-   <div class="card-text-center">
-    <div class="card-deck">
-<div class="card" style="width: 50em" >
-  <div class="card-body">
-   <center> <h5 class="card-title" style="color: black "> Welcome Teacher</h5></center>
 
-     
-
-   </div>
-
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="loader">
-  <div class="inner one"></div>
-  <div class="inner two"></div>
-  <div class="inner three"></div>
-</div>
 
 
 

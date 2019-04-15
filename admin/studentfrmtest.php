@@ -40,7 +40,9 @@ $studentnumb = ($date). "-".($random);
 
  ?>
 
-<div class="container col-md-6 " style="background-color: rgba(0,0,0,.7)">
+
+<div class="container col-md-8 " style="background-color: rgba(0,0,0,.7)">
+
   <div class="box" >
 <br>
 <h2 class="text-white text-center">Student Registration</h2>
@@ -72,13 +74,15 @@ $studentnumb = ($date). "-".($random);
     <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
   </div>
     <div class="form-group col-md-3.5" >  
-    <label for="Suffix"><b style=color:red; >*</b>Suffix</label>
-    <input type="text" class="form-control" id="Suffix" name="lname" placeholder="">
+
+    <label for="Suffix">Suffix</label>
+    <input type="text" class="form-control"  name="sname" placeholder="">
   </div>
 
   <div class="form-group col-md-3.5" >
-    <label for="LastName"><b style=color:red; >*</b>Nickname</label>
-    <input type="text" class="form-control" id="LastName" name="lname" placeholder="Nick Name">
+    <label for="Nickname"><b style=color:red; >*</b>Nickname</label>
+    <input type="text" class="form-control" name="nname" placeholder="Nick Name">
+
   </div>
 
 
@@ -108,15 +112,13 @@ $studentnumb = ($date). "-".($random);
 
 
 
-  <div class="form-group col-md-4">
-  
-  </div>
+
  <div class="form-group col-md-4">
   
   </div>
 <div class="form-group col-md-4">
    <label for="" ><b style=color:red; >*</b>Status</label>
-   <select class="form-control" name="stat">
+   <select class="form-control" name="stats" required>
     <option value="FirstTake">First Take</option>
     <option  value="Retake">Retake</option>
 </select>
@@ -124,7 +126,7 @@ $studentnumb = ($date). "-".($random);
 
 <div class="form-group col-md-4">
    <label for="" ><b style=color:red; >*</b>Package</label>
-   <select class="form-control" name="stat">
+   <select class="form-control" name="pack" required>
     <option value="FirstTake">Full Review</option>
     <option  value="Retake">Intensive</option>
        <option  value="Retake">Final Coaching</option>
@@ -178,6 +180,11 @@ while ($row = mysqli_fetch_array($result1)) {
     <input type="text" class="form-control" id="Phone" name="phone" placeholder="">
   </div>
 
+  <div class="form-group col-md-3">
+    <label for="Password"><b style=color:red; >*</b>Password</label>
+    <input type="text" class="form-control" name="Password" placeholder="" required>
+  </div>
+
 
   
 </div>
@@ -200,10 +207,15 @@ if (isset($_POST["test"])) {
 	$fname=$_POST['fname'];
 	$mname=$_POST['mname'];
 	$lname=$_POST['lname'];
+  $nname=$_POST['nname'];
 	$address=$_POST['Address'];
 	$enrolledschool=$_POST['enrolledschool'];
 	$prog=$_POST['prog'];
-  $stat=$_POST['stat'];
+
+  $sname=$_POST['sname'];
+  $stats=$_POST['stats'];
+  $pack=$_POST['pack'];
+  $Password=$_POST['Password'];
   
 
 //random number
@@ -231,7 +243,7 @@ $studentnumb = ($date). "-".($random);
 
 
 
-     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`, `Address`, `EnrolledSchool`, Program, Status,`Gender`,`TelPhone`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname', '$address','$enrolledschool' ,'$prog','$stat','$gender','$phone','$db_pass')";
+     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`,Suffix,`Nickname`, `Address`, `EnrolledSchool`, Program, Status, Package,`Gender`,`TelPhone`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname','$sname','$nname', '$address','$enrolledschool' ,'$prog','$stats','$pack','$gender','$phone','$db_pass')";
 
      mysqli_query($conn," INSERT INTO `logtbl` ( `user`, `pass`, `position`) VALUES ( '$studentnumb', '$db_pass', 'student')");
 
