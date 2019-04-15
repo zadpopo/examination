@@ -127,9 +127,9 @@ $studentnumb = ($date). "-".($random);
 <div class="form-group col-md-4">
    <label for="" ><b style=color:red; >*</b>Package</label>
    <select class="form-control" name="pack" required>
-    <option value="FirstTake">Full Review</option>
-    <option  value="Retake">Intensive</option>
-       <option  value="Retake">Final Coaching</option>
+    <option value="Full Review">Full Review</option>
+    <option  value="Intensive">Intensive</option>
+       <option  value="Final Coaching">Final Coaching</option>
      </select>
 </div>
 
