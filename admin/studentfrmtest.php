@@ -16,6 +16,7 @@
 include("../php/connections.php");
 include("php/bg.php");
 
+
 		?>
 
 <!---random number-->
@@ -39,10 +40,11 @@ $studentnumb = ($date). "-".($random);
 
  ?>
 
-<div class="container " style="background-color: black">
+<div class="container col-md-6 " style="background-color: rgba(0,0,0,.7)">
+  <div class="box" >
 <br>
-<h2 class="text-white">Student Registration</h2>
-<br>
+<h2 class="text-white text-center">Student Registration</h2>
+
 <b style=color:red; >* Required Field</b> 
 <br>
 
@@ -51,32 +53,32 @@ $studentnumb = ($date). "-".($random);
 
 <div class="form-row text-white">
 
-<div class="form-group col-md-3">
+<div class="form-group col-md-3.5">
     <label for="FirstName"><b style=color:red; >*</b>First Name</label>
     <input type="text" class="form-control" id="" name="fname" placeholder="First Name">
   <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
   </div>
 
 
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-3.5">
     <label for="">Middle Name</label>
     <input type="text" class="form-control" name="mname" id="" placeholder="Middle Name">
   </div>
 
 
 
-  <div class="form-group col-md-3" >
+  <div class="form-group col-md-3.5" >
     <label for="LastName"><b style=color:red; >*</b>Last Name</label>
     <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
   </div>
-    <div class="form-group col-md-3" >
+    <div class="form-group col-md-3.5" >  
     <label for="Suffix"><b style=color:red; >*</b>Suffix</label>
     <input type="text" class="form-control" id="Suffix" name="lname" placeholder="">
   </div>
 
-  <div class="form-group col-md-3" >
+  <div class="form-group col-md-3.5" >
     <label for="LastName"><b style=color:red; >*</b>Nickname</label>
-    <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
+    <input type="text" class="form-control" id="LastName" name="lname" placeholder="Nick Name">
   </div>
 
 
@@ -98,7 +100,21 @@ $studentnumb = ($date). "-".($random);
     <option  value="Female">Female</option>
 </select>
 </div>
-<div class="form-group col-md-3">
+
+  <div class="form-group col-md-4">
+    <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
+    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
+  </div>
+
+
+
+  <div class="form-group col-md-4">
+  
+  </div>
+ <div class="form-group col-md-4">
+  
+  </div>
+<div class="form-group col-md-4">
    <label for="" ><b style=color:red; >*</b>Status</label>
    <select class="form-control" name="stat">
     <option value="FirstTake">First Take</option>
@@ -106,7 +122,7 @@ $studentnumb = ($date). "-".($random);
 </select>
 </div>
 
-<div class="form-group col-md-3">
+<div class="form-group col-md-4">
    <label for="" ><b style=color:red; >*</b>Package</label>
    <select class="form-control" name="stat">
     <option value="FirstTake">Full Review</option>
@@ -116,7 +132,7 @@ $studentnumb = ($date). "-".($random);
 </div>
 
 
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-4">
   <label for=""><b style=color:red; >*</b>Programs:</label>
 <div class="form-group">
   <select class="form-control" name="prog">
@@ -139,15 +155,8 @@ while ($row = mysqli_fetch_array($result1)) {
 </div>
 
 
-  <div class="form-group col-md-3">
-    <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
-    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
-  </div>
 
-<hr>
-
-
-   <div class="form-group col-md-12">
+   <div class="form-group col-md-10">
     <label for="Phone">
 <b style=color:red; >In case of Emergency</b> </label>
 
@@ -170,18 +179,17 @@ while ($row = mysqli_fetch_array($result1)) {
   </div>
 
 
-
-
-  
   
 </div>
-<div class="modal-footer">
-	 <a href="home.php" type="button" class="btn btn-danger"  value="Cancel">Cancel</a>
-  <input  type="submit" class="btn btn-primary" value="submit" name="test">
+<div class="modal-footer" >
+	 <a href="home.php" type="button" class="btn btn-danger"  value="Cancel" style="border-radius: 20px">Cancel</a>
+  <input  type="submit" class="btn btn-primary" value="submit" name="test" style="border-radius: 20px" >
 </div>
 
 </form>
 </div>
+</div>
+
 <?php
 
 
@@ -244,17 +252,17 @@ $conn->close();
 
 
 
-
-
-
-
 }
 
 
 ?>
 
 
+<?php
 
+include("../php/footer_fit.php");
+
+?>
 
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>

@@ -2,8 +2,6 @@
   <?php 
   include ("php/nav.php");
 
-
-
   if ($_GET) {
     $id = $_GET['id'];
 
@@ -17,6 +15,31 @@
 
 
 }
+$status2 ="";
+$status ="hidden";
+
+
+$check_q= mysqli_query($conn, "SELECT * FROM examtbl WHERE exam_no='$id'");
+$rows_check_q= mysqli_num_rows($check_q);
+
+
+$check_a= mysqli_query($conn, "SELECT * FROM answertbl WHERE exam_no='$id' and stud_id='$user'");
+$rows_check_a= mysqli_num_rows($check_a);
+
+if ($rows_check_q == $rows_check_a ) {
+  
+  $status ="";
+  $status2 ="hidden";
+
+}
+
+$s2= "SELECT * FROM timetbl WHERE exam_id='$id'";
+$r2 = $conn->query($s2);
+$d2= $r2->fetch_assoc();
+$stime = $d2['duration'];
+
+$dtime = $stime  * 60000;  
+
   ?>
   
 
@@ -27,13 +50,40 @@
 
 
 <br>
+
+<div style="background-color: maroon"  class="alert" role="alert">
+
   <center>
 
-<h2 style="color: skyblue"><b>Exam Sheet</b><h2> 
+<h2><b style="color:white">Exam Sheet</b><h2> 
 
+  <div id="response" style="color:white" <?php echo $status2 ?>></div>
+
+<script type="text/javascript">
+ var x = setInterval(fun1,1000);
+ setTimeout('xx()',<?php echo $dtime?>);
+ function fun1(){
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET","response.php",false);
+  xmlhttp.send(null);
+  var str = document.getElementById("response").innerHTML=xmlhttp.responseText;
+  /*if(str.slice(7,9) == "58"){
+   window.location.href='login.php';
+  }*/
+
+ }
+ function xx(){
+   clearInterval(x);
+   alert('Time is up!');
+   window.location.href='result.php?id=<?php echo $id?>';
+   
+   //clearInterval(y);
+  }
+  
+</script>
 
 </center>
-
+</div>
 
  <?php 
 
@@ -110,28 +160,7 @@
 <br>
 
 
-<?php
 
-$status ="hidden";
-
-$check_q= mysqli_query($conn, "SELECT * FROM examtbl WHERE exam_no='$id'");
-$rows_check_q= mysqli_num_rows($check_q);
-
-
-$check_a= mysqli_query($conn, "SELECT * FROM answertbl WHERE exam_no='$id' and stud_id='$user'");
-$rows_check_a= mysqli_num_rows($check_a);
-
-if ($rows_check_q == $rows_check_a ) {
-  
-  $status ="";
-}
-
-
-
-
-
-
- ?>
 
 <div class="alert alert-success" <?php echo $status ?> role="alert">
  <center><h3>Congratulation! You Successfully Answered All Questions.</h3></center> 

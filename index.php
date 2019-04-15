@@ -91,11 +91,11 @@ $pass = $_POST["pass"];
 					$_SESSION["acctype"] = $db_accounttype;
 			
 					
-					echo "<script>window.location.href='teacher';</script>";
+					echo "<script>window.location.href='emp';</script>";
 					
 				}else{
 					
-					$passErr = "Hi lecturer! Your Password is incorrect!";
+					$passErr = "Hi employee! Your Password is incorrect!";
 					
 				}
 			}

@@ -43,6 +43,8 @@
                      <tr>
                                             <th style="width:1%">#</th>
                                             <th style="width:50%">Exam</th>
+                                            <th style="width:1%">Questions</th> 
+                                            <th style="width:1%">Minutes</th>  
                                           
                                             <th style="width:1%">Action</th>                         
                                        
@@ -65,7 +67,7 @@
 
 	$button= '';  
 
-  $check_exam = mysqli_query($conn, "SELECT * FROM answertbl WHERE exam_no='$exam_no' AND stud_id='$user' ");
+  $check_exam = mysqli_query($conn, "SELECT * FROM evaltbl WHERE exam_no='$exam_no' AND stud_no='$user' ");
   $check_exam_row = mysqli_num_rows($check_exam);
 
     if($check_exam_row > 0) {
@@ -85,14 +87,43 @@
 
                                         <td> <?php echo $counter ?></td>
                                         <td><?php echo $row["exam_name"]; ?></td>
-                               
-                                        
+
+<?php 
+
+$rows= mysqli_query($conn, "SELECT * FROM examtbl where exam_no ='$exam_no'");
+$qrows= mysqli_num_rows($rows);
+
+
+
+?>
+                                        <td><?php echo $qrows?></td>
+
+<?php 
+
+
+  $s3= "SELECT * FROM timetbl WHERE exam_id = '$exam_no'";
+  $r3 = $conn->query($s3);
+  $d3= $r3->fetch_assoc();
+  $du = $d3['duration'];
+
+  
+
+
+
+
+?>
+                                        <td><?php echo $du?></td>
                                         <td  style="color: white;">
 
-                                        <a href="exam.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button ?> class="btn btn-info btn-sm "><b>Take</b></a>
 
 
-                                        <a href="result.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button2 ?>  class="btn btn-warning btn-sm "><b>Result</b></a>
+                                   
+                                          <a href="eval.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button ?>  class="btn btn-primary btn-sm "><b>Take</b></a>
+
+                                      
+
+
+                                        <a href="result.php?id=<?php echo $row["exam_no"]; ?>"  <?php echo   $button2 ?>  class="btn btn-warning btn-sm "><b>Result</b></a>
 
                                 
 
@@ -104,5 +135,15 @@
   ?>                         
 
   </tbody>
+
+
 </div>
 </div>
+<script type="text/javascript">
+function confirm_pay() {
+
+  return confirm('Are You Sure?');
+
+  
+}
+</script>

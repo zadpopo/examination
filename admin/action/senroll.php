@@ -14,6 +14,8 @@ if (isset($_POST['stud_no'])) {
 
   $prog = $data['Program'];
 
+  $bal = $data['balance'];
+
   
 
 
@@ -101,7 +103,9 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
 
 
                     while  ($row = mysqli_fetch_array($r1)){
-                     $block= $row["block_name"];
+
+                     $block_id= $row["block_id"];
+
                      echo "<option value='$block_id'>$block</option>";
                    }
                     ?>
@@ -119,6 +123,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
 
   </div>
 
+    <input type="hidden" name="old" value="<?php echo $bal?>">
   	<input type="hidden" value="<?php echo $stud_no?>" name="stud_no" required class="form-control">
     <input type="hidden" value="<?php echo $prog?>" name="prog" required class="form-control">
 
@@ -129,6 +134,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     
       </div>
+
 
 
 </form>

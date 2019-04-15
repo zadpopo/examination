@@ -9,30 +9,26 @@ $s1= "SELECT * FROM yeartbl WHERE status = '1'";
 
 
 if (isset($_POST['stud_no'])) {
-
-
   $stud_no = $_POST['stud_no'];
 
   $sql = "SELECT * FROM studenttbl WHERE student_number = '$stud_no'";
-
   $result = $conn->query($sql);
-
   $data= $result->fetch_assoc();
-
   $bal = $data['balance'];
   $prog = $data['Program'];
 
+   $s2 = "SELECT * FROM enrolltbl WHERE student_number = '$stud_no' AND enroll_date ='$active'";
+  $r2 = $conn->query($s2);
+  $d2= $r2->fetch_assoc();
+  $block_id= $d2['block_id'];
 
-   $s1 = "SELECT * FROM enrolltbl WHERE student_number = '$stud_no' AND enroll_date ='$active'";
 
-  $r1 = $conn->query($s1);
-
-  $d1= $r1->fetch_assoc();
-
-  $block = $d1['block_id'];
-
+  $s3 = "SELECT * FROM block WHERE block_id = '$block_id'";
+  $r3 = $conn->query($s3);
+  $d3= $r3->fetch_assoc();
+  $block_name= $d3['block_name'];
+  
 }
-
 
  ?>
 
@@ -47,7 +43,10 @@ if (isset($_POST['stud_no'])) {
 <br>
 <br>
 
-<center><?php echo $prog;?> - <?php echo  $block;?></center>
+
+
+<center><?php echo $prog;?> - <?php echo  $block_name;?></center>
+
 
 
 
@@ -100,7 +99,6 @@ if (isset($_POST['stud_no'])) {
 
 
 </form>
-
 
 
 

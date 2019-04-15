@@ -4,13 +4,15 @@
 <html>
 <head>
 	<title>Review Year</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 </head>
 <body>
 
   <?php 
   include ("php/nav.php");
+
   ?>
   
 
@@ -43,8 +45,11 @@
  <div class="modal-footer">
      
         <button  type="submit" name="byear" class="btn btn-success">Create</button>
+
       </div>
+
 </form>
+
 
 
 <?php 
@@ -80,6 +85,7 @@ $y3 = $y1 ."-". $y2;
     </div>
   
   </div>
+
 <br>
 
 <div class="card-deck">
@@ -97,6 +103,8 @@ $y3 = $y1 ."-". $y2;
    $data= $result->fetch_assoc();
 
       ?>
+
+
      
     <form action="" method="POST">
 
@@ -175,6 +183,8 @@ $aa= $_POST["aa"];
 ?>
 
 
+
+
     </div>
 
   </div>
@@ -184,6 +194,12 @@ $aa= $_POST["aa"];
 
 
 <br>
+<!---footer--->
+<div class="fixed-bottom" >
+  <?php
+  include ("../php/footer_fit.php");
+?>
+</div>
 
 </body>
 </html>

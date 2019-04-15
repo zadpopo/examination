@@ -24,14 +24,11 @@
 
     <title></title>
   </head>
+<body style="background-image: url('../img/112.jpg'); background-color: white; background-size: cover; background-repeat: no-repeat";>
 
 <?php
 
 include ("connections.php");
-
-
-
-
 
 
  session_start();
@@ -78,7 +75,9 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
 
 
 ?>
-<div class="area"></div><nav class="main-menu">
+<div class="area" style="height: 100%">
+  
+  <nav class="main-menu">
  <form action="" method="POST"> 
             <ul>
                 <li>
@@ -105,6 +104,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
 
                 <li>
                    <a href="en_review.php">
+                    <br>
                        <i class="fa fa-table fa-1.5x"></i>
                         <span class="nav-text">
                             Set Review
@@ -151,19 +151,13 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     </a>
                 </li>
                 
+              
                 <li>
-                   <a hidden href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
+                    <a href="result.php">
+                      <br>
+                       <i class="fa fa-poll fa-1.5x"></i>
                         <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a hidden href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Documentation
+                            Result
                         </span>
                     </a>
                 </li>
@@ -180,6 +174,26 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     </a>
                 </li>  
             </ul>
+
         </nav>
       </form>
+
+
+
+</div>
+</body>
+</html>
+
         
+
+
+      <script type="text/javascript">
+function confirm_pay() {
+
+  return confirm('Are You Sure?');
+
+  
+}
+</script>
+
+

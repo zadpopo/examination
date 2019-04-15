@@ -1,14 +1,15 @@
 
-
 body{
 
 
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url("../img/bgmain.jpg");
+  background-image: url("../img/112.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: 0.80;
+
 
 
 }
