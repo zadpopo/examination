@@ -122,6 +122,18 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                 </li>
 
 
+                   <li>
+                    <a href="sattendance.php">
+                      <br>
+                       <i class="fa fa-user-clock fa-1.5x"></i>
+                        <span class="nav-text">
+                            Attendance
+                        </span>
+                    </a>
+                </li>
+
+
+
                
 
                  

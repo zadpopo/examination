@@ -34,8 +34,12 @@ if ($rows_check_q == $rows_check_a ) {
 }
 
 
+$s2= "SELECT * FROM timetbl WHERE exam_id='$id'";
+$r2 = $conn->query($s2);
+$d2= $r2->fetch_assoc();
+$stime = $d2['duration'];
 
-
+$dtime = $stime  * 60000;  
 
 
   ?>
@@ -48,15 +52,20 @@ if ($rows_check_q == $rows_check_a ) {
 
 
 <br>
+
+<div style="background-color: maroon"  class="alert" role="alert">
+
   <center>
 
-<h2 style="color: skyblue"><b>Exam Sheet</b><h2> 
+<h2><b style="color:white">Exam Sheet</b><h2> 
 
-  <div id="response" <?php echo $status2 ?>></div>
+
+  <div id="response" style="color:white" <?php echo $status2 ?>></div>
+
 
 <script type="text/javascript">
  var x = setInterval(fun1,1000);
- setTimeout('xx()',60000);
+ setTimeout('xx()',<?php echo $dtime?>);
  function fun1(){
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET","response.php",false);
@@ -69,14 +78,16 @@ if ($rows_check_q == $rows_check_a ) {
  }
  function xx(){
    clearInterval(x);
+   alert('Time is up!');
    window.location.href='result.php?id=<?php echo $id?>';
+   
    //clearInterval(y);
   }
   
 </script>
 
 </center>
-
+</div>
 
  <?php 
 

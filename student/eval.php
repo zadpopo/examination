@@ -5,6 +5,7 @@ include 'php/nav.php';
 if ($_GET) {
     $exam_id = $_GET['id'];
 }
+
 ?>
 
 

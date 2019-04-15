@@ -40,7 +40,9 @@ $studentnumb = ($date). "-".($random);
 
  ?>
 
+
 <div class="container col-md-8 " style="background-color: rgba(0,0,0,.7)">
+
   <div class="box" >
 <br>
 <h2 class="text-white text-center">Student Registration</h2>
@@ -72,6 +74,7 @@ $studentnumb = ($date). "-".($random);
     <input type="text" class="form-control" id="LastName" name="lname" placeholder="Last Name">
   </div>
     <div class="form-group col-md-3.5" >  
+
     <label for="Suffix">Suffix</label>
     <input type="text" class="form-control"  name="sname" placeholder="">
   </div>
@@ -79,6 +82,7 @@ $studentnumb = ($date). "-".($random);
   <div class="form-group col-md-3.5" >
     <label for="Nickname"><b style=color:red; >*</b>Nickname</label>
     <input type="text" class="form-control" name="nname" placeholder="Nick Name">
+
   </div>
 
 
@@ -105,6 +109,8 @@ $studentnumb = ($date). "-".($random);
     <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
     <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
   </div>
+
+
 
 
  <div class="form-group col-md-4">
@@ -173,10 +179,12 @@ while ($row = mysqli_fetch_array($result1)) {
     <label for="Phone"><b style=color:red; >*</b>Relationship</label>
     <input type="text" class="form-control" id="Phone" name="phone" placeholder="">
   </div>
+
   <div class="form-group col-md-3">
     <label for="Password"><b style=color:red; >*</b>Password</label>
     <input type="text" class="form-control" name="Password" placeholder="" required>
   </div>
+
 
   
 </div>

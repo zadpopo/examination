@@ -31,7 +31,9 @@
 
     <title></title>
   </head>
+
   <body style="background-image: url('../img/112.jpg'); background-color: white; background-size: cover; background-repeat: no-repeat">
+
 <?php
 
 include ("connections.php");
@@ -112,7 +114,9 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="#"><br>
+
+                    <a href="result.php"><br>
+
                        <i class="fa fa-poll fa-1.5x"></i>
                         <span class="nav-text">
                             Result
@@ -120,55 +124,19 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                     </a>
                     
                 </li>
-                <li  hidden class="has-subnav">
-                    <a href="emoloyeesfrm.php">
-                       <i class="fa fa-folder-open fa-2x"></i>
+
+
+                <li class="has-subnav">
+                    <a href="attendance.php"><br>
+                       <i class="fa fa-clock fa-1.5x"></i>
                         <span class="nav-text">
-                            Employees Registration
+                            Attendance
                         </span>
                     </a>
-                   
+                    
                 </li>
-                <li>
-                    <a hidden="" href="../studentfrmtest.php">
-                        <i class="fa fa-bar-chart-o fa-2x"></i>
-                        <span class="nav-text">
-                            Student Registration
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a hidden href="#">
-                        <i class="fa fa-font fa-2x"></i>
-                        <span class="nav-text">
-                           Quotes
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a hidden href="#">
-                       <i class="fa fa-table fa-2x"></i>
-                        <span class="nav-text">
-                            Tables
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a hidden href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a hidden href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Documentation
-                        </span>
-                    </a>
-                </li>
+               
+
             </ul>
 
             <ul class="logout">
