@@ -56,6 +56,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
   $stu_lname = $row_users["LastName"];
   $stu_fname = $row_users["FirstName"];
   $stu_mname = $row_users["MiddleName"];
+  $stu_nname = $row_users["Nickname"];
 
   
   
@@ -92,7 +93,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                       <br>
                         <i class="fa fa-laptop fa-1.5x"></i>
                         <span class="nav-text">
-                           Welcome <?php echo $stu_fullname ?>
+                           Welcome <?php echo $stu_nname ?>
                         </span>
                     </a>
                     

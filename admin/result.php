@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> result</title>
+</head>
+<body>
 <?php 
 include 'php/nav.php';
 
@@ -17,7 +23,6 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 <br>
 
 
-<center><h3 style="color: white" >Exam List</h3></center>
 
 <br>
 
@@ -31,7 +36,7 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
-                                            <th style="width:40%">Exam</th>
+                                            <th style="width:40%">Exam List</th>
                                          
                                             <th style="width:20%">Program</th>
                                             <th style="width:2%">Takers</th>
@@ -84,7 +89,7 @@ $rows_done_count= mysqli_num_rows($rows_done);
 
                                   
                                        
-         								  <td style="color: white;"><b style="color: black"><?php echo $rows_done_count;?>/<?php echo $rows_enroll_count;?></b> </td>
+                          <td style="color: white;"><b style="color: black"><?php echo $rows_done_count;?>/<?php echo $rows_enroll_count;?></b> </td>
 
                                      <td><a href="eval.php?id=<?php echo $row["exam_no"]; ?>" class="btn btn-success btn-sm" title="evaluation" ><i class="fas fa-align-left"></i></a>
 
@@ -102,9 +107,13 @@ $rows_done_count= mysqli_num_rows($rows_done);
   ?>                         
 
   </tbody>
-	
+  
 
 
 
 
 </div></div>
+
+</body>
+</html>
+
