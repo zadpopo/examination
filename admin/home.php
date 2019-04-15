@@ -11,6 +11,7 @@
 
   <?php 
   include ("php/nav.php");
+  include("flipcard_dashboard.php")
   ?>
   
   <!---fire anim--->
