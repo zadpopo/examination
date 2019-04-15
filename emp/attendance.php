@@ -6,25 +6,6 @@ include ("php/nav.php");
 
 
 
-<div class="container padding">
-
-
-
-
-
-<br>
-  <center>
-
-<h2 style="color: white"><b>Set Schedule</b><h2> 
-
-
-<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#time">
-Add Schedule
-</button>
-
-</center>
-</div>
-
 
  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
@@ -36,6 +17,10 @@ Add Schedule
 
   
                  <div class=" table-sorting table-responsive-sm mx-auto table-light" style="width:80%">
+                <center>  <h2 ><b>Set Schedule</b> <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#time">
+Add Schedule
+</button></h2> </center>
+
                    <table class="table table-striped table-bordered"  id="tSortable20">
                     <thead class="thead-dark">
                      <tr>
