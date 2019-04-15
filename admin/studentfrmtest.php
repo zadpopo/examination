@@ -182,7 +182,7 @@ while ($row = mysqli_fetch_array($result1)) {
 
   <div class="form-group col-md-3">
     <label for="Password"><b style=color:red; >*</b>Password</label>
-    <input type="text" class="form-control" name="Password" placeholder="" required>
+    <input type="password" class="form-control" name="Password" placeholder="" required>
   </div>
 
 
