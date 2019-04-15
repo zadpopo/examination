@@ -61,7 +61,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
     </tr>
   </thead>
   <tbody>
-  	 <?php
+     <?php
      while($row = mysqli_fetch_array($result)){
      ?>
     <tr>
@@ -105,6 +105,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
                     while  ($row = mysqli_fetch_array($r1)){
 
                      $block_id= $row["block_id"];
+                     $block= $row["block_name"];
 
                      echo "<option value='$block_id'>$block</option>";
                    }
@@ -117,20 +118,20 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
     <label for="" class="col-sm-3 col-form-label"><span style=color:red; >*</span>Tuition Fee</label>
     <div class="col-sm-4">
 
-    	<input type="number" name="tf" required class="form-control">
+      <input type="number" name="tf" required class="form-control">
 
 </div>
 
   </div>
 
     <input type="hidden" name="old" value="<?php echo $bal?>">
-  	<input type="hidden" value="<?php echo $stud_no?>" name="stud_no" required class="form-control">
+    <input type="hidden" value="<?php echo $stud_no?>" name="stud_no" required class="form-control">
     <input type="hidden" value="<?php echo $prog?>" name="prog" required class="form-control">
 
 
 
  <div class="modal-footer">
- 		<button type="submit" name="es" class="btn btn-success">Enroll</button>
+    <button type="submit" name="es" class="btn btn-success">Enroll</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     
       </div>

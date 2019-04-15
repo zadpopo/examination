@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam List</title>
+</head>
+<body>
 <?php 
  include ("php/nav.php");
 
@@ -28,8 +34,6 @@
 <br>
 
 
-<center><h3 style="color: skyblue">Exam List</h3></center>
-
 <br>
 
 
@@ -42,7 +46,7 @@
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
-                                            <th style="width:50%">Exam</th>
+                                            <th style="width:50%">Exam List</th>
                                             <th style="width:1%">Questions</th> 
                                             <th style="width:1%">Minutes</th>  
                                           
@@ -63,9 +67,9 @@
 
  $exam_no= $row["exam_no"];
 
- 	 $button2='hidden';
+   $button2='hidden';
 
-	$button= '';  
+  $button= '';  
 
   $check_exam = mysqli_query($conn, "SELECT * FROM evaltbl WHERE exam_no='$exam_no' AND stud_no='$user' ");
   $check_exam_row = mysqli_num_rows($check_exam);
@@ -147,3 +151,7 @@ function confirm_pay() {
   
 }
 </script>
+
+</body>
+</html>
+

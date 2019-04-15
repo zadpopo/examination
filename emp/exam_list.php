@@ -30,9 +30,9 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
 
 
-<center>
 
-<button type="submit" class="btn btn-warning btn-sm" name="tran" data-toggle="modal" data-target="#cexam">
+
+<center><button type="submit" class="btn btn-warning btn-sm" name="tran" data-toggle="modal" data-target="#cexam">
   Create New Exam Sheet
 </button>
  </center>
@@ -48,7 +48,9 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
+
                                             <th style="width:40%">Exam List</th>
+
 
                                             <th style="width:5%">timer</th>
 

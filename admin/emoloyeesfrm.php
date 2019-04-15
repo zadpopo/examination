@@ -25,7 +25,7 @@
 
   ?>
 
-  <<title>Employee Form</title><br>
+  <title>Employee Form</title><br>
   </head>
   <body>
 
@@ -124,6 +124,9 @@
     <label for="user">Password</label>
     <input type="Password" class="form-control" name="pass" placeholder=""  required>
   </div>
+
+  
+
 </div>
 
 

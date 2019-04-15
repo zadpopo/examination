@@ -1,10 +1,11 @@
 <?php
-
-include 'php/nav.php';
+include ("php/connections.php");
+include 'php/bg.php';
 
 if ($_GET) {
     $exam_id = $_GET['id'];
 }
+
 ?>
 
 
