@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,8 @@
 <body>
 <?php 
   include ("php/bg.php");
+
+
 
   if ($_GET) {
     $id = $_GET['id'];

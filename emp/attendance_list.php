@@ -71,8 +71,29 @@ include 'php/nav.php';
 
                                        <td><?php echo $d2['LastName']?>, <?php echo $d2['FirstName']?> <?php echo $d2['MiddleName']?></td>
                                        <td><?php echo date('h:i:s A',strtotime($row['time_In']));?></td>
-                                       
-	                                   <td><?php echo date('h:i:s A',strtotime($row['time_out']));?> </td>
+
+<?php 
+
+
+   if ($row['time_out'] =="00:00:00" || $row['time_out'] == "") {
+    
+    $o1 ='hidden';
+    $o2 ='';  
+
+  } else {
+  
+    $o1 ='';
+    $o2 ='hidden';
+  }
+
+?>
+
+                                       <td <?php echo $o1?>><?php echo date("h:i:s A",strtotime($row['time_out']));?></td>
+                                     <td <?php echo $o2?>></td>
+                                      
+                                      
+	                                  
+
 	                                
                                       
                             
