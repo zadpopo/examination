@@ -97,6 +97,7 @@ $prog= $_POST["prog"];
 
 
                                             <th style="width:40%">Name</th>
+                                            <th style="width:40%">Student ID</th>
                                             <th style="width:20%">Program</th>
                                             <th style="width:1%">Action</th>
                                         </tr>
@@ -108,6 +109,7 @@ $prog= $_POST["prog"];
 
 
                                          <td><a href="studentinfo.php?id=<?php echo $row["student_number"]; ?>"><?php echo $row['LastName']?>, <?php echo $row['FirstName']?> <?php echo $row['MiddleName']?></a></td>
+                                         <td><?php echo $row['student_number']?></td>
 
                                          <td><?php echo $row['Program']?></td>
 

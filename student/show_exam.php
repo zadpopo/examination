@@ -28,8 +28,6 @@
 <br>
 
 
-<center><h3 style="color: skyblue">Exam List</h3></center>
-
 <br>
 
 
@@ -42,7 +40,7 @@
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
-                                            <th style="width:50%">Exam</th>
+                                            <th style="width:50%">Exam List</th>
                                             <th style="width:1%">Questions</th> 
                                             <th style="width:1%">Minutes</th>  
                                           

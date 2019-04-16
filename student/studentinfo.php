@@ -11,7 +11,7 @@
 
 
 
-$q1 ="select concat(`FirstName`,' ',`MiddleName`,' ',`LastName`) as 'Name' from studenttbl where student_number	='$user'";
+$q1 ="select concat(`FirstName`,' ',`MiddleName`,' ',`LastName`,' ',Suffix) as 'Name' from studenttbl where student_number  ='$user'";
 $r1 = mysqli_query($conn,$q1);
 $d1 =$r1->fetch_assoc();
 
@@ -50,6 +50,12 @@ $d2 =$r2->fetch_assoc();
     </tr>
   </thead>
   <tbody>
+
+     <tr>
+      <th scope="row">Nickname: </th>
+      <td><?php echo $d2["Nickname"]; ?></td>
+   
+    </tr>
     <tr>
       <th scope="row">Address: </th>
       <td><?php echo $d2["Address"]; ?></td>
@@ -77,6 +83,19 @@ $d2 =$r2->fetch_assoc();
       <td><?php echo $d2["Program"]; ?></td>
       
     </tr>
+
+    <tr>
+      <th scope="row">Status: </th>
+      <td><?php echo $d2["Status"]; ?></td>
+   
+    </tr>
+
+    <tr>
+      <th scope="row">Package: </th>
+      <td><?php echo $d2["Package"]; ?></td>
+   
+    </tr>
+
 
     <tr>
       <th scope="row">Balance:</th>
