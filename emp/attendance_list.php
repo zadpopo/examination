@@ -71,6 +71,7 @@ include 'php/nav.php';
 
                                        <td><?php echo $d2['LastName']?>, <?php echo $d2['FirstName']?> <?php echo $d2['MiddleName']?></td>
                                        <td><?php echo date('h:i:s A',strtotime($row['time_In']));?></td>
+
 <?php 
 
 
@@ -92,6 +93,7 @@ include 'php/nav.php';
                                       
                                       
 	                                  
+
 	                                
                                       
                             

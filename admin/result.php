@@ -18,14 +18,11 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
 
 <div class="container">
-<br>
 
 
-
-<br>
-
-
-
+<div class="card" style="width: 95%;">
+  <div class="card-body">
+    <h5 class="card-title text-center">Result of Exam</h5>
 
 
 

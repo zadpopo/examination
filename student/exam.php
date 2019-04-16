@@ -1,6 +1,14 @@
 
-  <?php 
-  include ("php/nav.php");
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Examination</title>
+</head>
+<body>
+<?php 
+  include ("php/bg.php");
+
+
 
   if ($_GET) {
     $id = $_GET['id'];
@@ -219,5 +227,7 @@ function confirm_pay() {
 }
 </script>
 
-  </body>
+</body>
 </html>
+  
+
