@@ -63,23 +63,18 @@
 
 
    <div class="form-group col-md-5">
-
-  <!--  
     <label for="" style="color: white" >Position:</label>
  
     <select class="form-control " name="prog" >
 
     <option value='' >Select</option>
     <option value='lecturer'>Lecturer</option>
-    <option value='marketing'>Marketing</option> 
+   <!-- <option value='marketing'>Marketing</option>  -->
 
    
     </select>
--->
-
-     
   </div>
-<input type="hidden" class="form-control" name="prog" value="lecture"  required>
+
 
 <div class="form-group col-md-5" >
     <label for="LastName" style="color: white">Birthday</label>

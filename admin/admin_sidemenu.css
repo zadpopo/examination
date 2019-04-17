@@ -27,7 +27,7 @@ overflow:visible;
 .main-menu {
 background:maroon;
 border-right:1px solid white;
-position:absolute;
+position:fixed;
 top:0;
 bottom:0;
 height: 100%;
