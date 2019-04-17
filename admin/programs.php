@@ -74,7 +74,7 @@ if (isset($_POST['padd'])) {
 ?>
 
  <div class=" table table-sorting table-wrap table-responsive-sm mx-auto" >
-                                        <table class="table table-striped table-bordered"  id="tSortable25">
+                                        <table class="table table-striped table-bordered"  id="tSortable2">
                                         <thead class="thead-dark">   
 
 
@@ -102,19 +102,7 @@ if (isset($_POST['padd'])) {
 
 </tbody>
 </table>
-<style >
-  .table{
 
-      border-collapse: collapse;
-  }
-
-.table-wrap {
-  height: 300px;
-  overflow-y: scroll;
-  display: inline-block;
-}
-
-</style>
     </div>
   
   </div>
