@@ -101,7 +101,7 @@ $countt3 = $d3['ex'];
       <br>
 
       <i class="fas fa-money-check-alt fa-5x"></i>
-      <h3>Uncollected Fee</h3>
+      <h3></h3>
 
     </div>
     <div class="flip-card-back3">
