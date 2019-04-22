@@ -62,17 +62,10 @@
   </div>
 
 
-   <div class="form-group col-md-5">
-    <label for="" style="color: white" >Position:</label>
+   <div class="form-group col-md-5" hidden="">
+    <label style="color: white" >Position:</label>
+        <input type="hidden" class="form-control" name="prog" value="lecturer"  required>
  
-    <select class="form-control " name="prog" >
-
-    <option value='' >Select</option>
-    <option value='lecturer'>Lecturer</option>
-   <!-- <option value='marketing'>Marketing</option>  -->
-
-   
-    </select>
   </div>
 
 
