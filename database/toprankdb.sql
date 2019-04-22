@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2019 at 06:12 AM
+-- Generation Time: Apr 22, 2019 at 09:17 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -250,7 +250,10 @@ INSERT INTO `logtbl` (`log_id`, `user`, `pass`, `position`) VALUES
 (12, '2019-8127', '', 'student'),
 (13, '2019-3248', 'MjAxOS0zMjQ4', 'student'),
 (14, '2019-9149', 'MTExMTE=', 'student'),
-(15, '2019-5526', 'NTU1', 'student');
+(15, '2019-5526', 'NTU1', 'student'),
+(16, '2019-9263', 'MTEx', 'student'),
+(17, '2019-7597', 'MjIy', 'student'),
+(18, '2019-7939', 'OTk5', 'student');
 
 -- --------------------------------------------------------
 
@@ -307,7 +310,10 @@ CREATE TABLE `studenttbl` (
   `Status` varchar(255) NOT NULL,
   `Package` varchar(255) NOT NULL,
   `Gender` varchar(255) NOT NULL,
-  `TelPhone` varchar(255) NOT NULL,
+  `ContactNumber` varchar(255) NOT NULL,
+  `GuardianName` varchar(255) NOT NULL,
+  `GContactNumber` varchar(255) NOT NULL,
+  `Relationship` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `balance` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -316,14 +322,17 @@ CREATE TABLE `studenttbl` (
 -- Dumping data for table `studenttbl`
 --
 
-INSERT INTO `studenttbl` (`stud_id`, `student_number`, `FirstName`, `MiddleName`, `LastName`, `Suffix`, `Nickname`, `Address`, `EnrolledSchool`, `Program`, `Status`, `Package`, `Gender`, `TelPhone`, `Password`, `balance`) VALUES
-(1, '2019-student', 'Erick', 'M', 'N', '', '', 'Manila', 'enrolledschool', 'Criminology', '', '', 'male', '652981905606', 'c3R1ZGVudA==', '182.00'),
-(15, '2019-4254', 'rose', 'mary', 'tran', '', '', 'manila', 'informatics', 'Information Technology', '', '', 'Female', '02020202', 'dHJhbg==', '99.00'),
-(16, '2019-5855', 'test1', 'test1', 'test1', '', '', 'test1', 'test1', 'Information Technology', '', '', 'Male', '212131', 'c3R1ZGVudA==', '99.00'),
-(17, '2019-8127', 'Educ', 'Rizal', 'Jose', 'Jr', '', 'Manila', 'UE', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', 'Father', '', '0.00'),
-(18, '2019-3248', 'Nadine', 'Na', 'Na', 'Jr', '', 'Manila', 'UE', 'Business Administrator', 'FirstTake', 'Retake', 'Female', 'Mother', 'MjAxOS0zMjQ4', '0.00'),
-(19, '2019-9149', 'Ruroni', 'Ken', 'Kenshin', 'Jr', '', 'Japan', 'Tokyo Uni', 'Rad Tech', 'FirstTake', 'Retake', 'Male', 'Mom', 'MTExMTE=', '0.00'),
-(20, '2019-5526', 'AAAA', 'BBB', 'CCC', 'Jr', 'ABC', 'Manila', 'UE', 'Nurse', 'FirstTake', 'FirstTake', 'Male', 'father', 'NTU1', '0.00');
+INSERT INTO `studenttbl` (`stud_id`, `student_number`, `FirstName`, `MiddleName`, `LastName`, `Suffix`, `Nickname`, `Address`, `EnrolledSchool`, `Program`, `Status`, `Package`, `Gender`, `ContactNumber`, `GuardianName`, `GContactNumber`, `Relationship`, `Password`, `balance`) VALUES
+(1, '2019-student', 'Erick', 'M', 'N', '', '', 'Manila', 'enrolledschool', 'Criminology', '', '', 'male', '', '', '652981905606', '', 'c3R1ZGVudA==', '182.00'),
+(15, '2019-4254', 'rose', 'mary', 'tran', '', '', 'manila', 'informatics', 'Information Technology', '', '', 'Female', '', '', '02020202', '', 'dHJhbg==', '99.00'),
+(16, '2019-5855', 'test1', 'test1', 'test1', '', '', 'test1', 'test1', 'Information Technology', '', '', 'Male', '', '', '212131', '', 'c3R1ZGVudA==', '99.00'),
+(17, '2019-8127', 'Educ', 'Rizal', 'Jose', 'Jr', '', 'Manila', 'UE', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', '', '', 'Father', '', '', '0.00'),
+(18, '2019-3248', 'Nadine', 'Na', 'Na', 'Jr', '', 'Manila', 'UE', 'Business Administrator', 'FirstTake', 'Retake', 'Female', '', '', 'Mother', '', 'MjAxOS0zMjQ4', '0.00'),
+(19, '2019-9149', 'Ruroni', 'Ken', 'Kenshin', 'Jr', '', 'Japan', 'Tokyo Uni', 'Rad Tech', 'FirstTake', 'Retake', 'Male', '', '', 'Mom', '', 'MTExMTE=', '0.00'),
+(20, '2019-5526', 'AAAA', 'BBB', 'CCC', 'Jr', 'ABC', 'Manila', 'UE', 'Nurse', 'FirstTake', 'FirstTake', 'Male', '', '', 'father', '', 'NTU1', '0.00'),
+(21, '2019-9263', 'Donal', 'Dol', 'Trump', '', 'Donalboy', 'New York', 'Havard', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', '090981021', 'Daddy', '0909556541650', 'father', 'MTEx', '0.00'),
+(22, '2019-7597', 'Steve', 'SJ', 'Jobs', '', 'Apple', 'New York', 'Havard', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', '09091926', 'Daddy', '099992566', 'father', 'MjIy', '0.00'),
+(23, '2019-7939', 'wda', 'wfad', 'wfad', '', 'wdwdddd', 'acssc', 'sacasc', 'Criminology', 'FirstTake', 'Intensive', 'Male', '111112112', 'adwd', '112212', 'father', 'OTk5', '0.00');
 
 -- --------------------------------------------------------
 
@@ -526,7 +535,7 @@ ALTER TABLE `lexamtb`
 -- AUTO_INCREMENT for table `logtbl`
 --
 ALTER TABLE `logtbl`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `programtbl`
@@ -538,7 +547,7 @@ ALTER TABLE `programtbl`
 -- AUTO_INCREMENT for table `studenttbl`
 --
 ALTER TABLE `studenttbl`
-  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `timetbl`
