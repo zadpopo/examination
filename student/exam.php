@@ -133,21 +133,28 @@ $dtime = $stime  * 60000;
   <input class="form-check-input" <?php echo $radio ?>  type="radio" name="ans" id="exampleRadios1" value="a" required>
   
   <?php echo $row['a'] ?>
-  </label>
+
 </div>
 
 <div class="form-check">
   <input class="form-check-input" <?php echo $radio ?>  type="radio" name="ans" id="exampleRadios2" value="b" >
 
    <?php echo $row['b'] ?>
-  </label>
+  
 </div>
 
 <div class="form-check">
   <input class="form-check-input" <?php echo $radio ?> type="radio" name="ans" id="exampleRadios3" value="c">
 
   <?php echo $row['c'] ?>
-  </label>
+  
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" <?php echo $radio ?> type="radio" name="ans" id="exampleRadios4" value="d">
+
+  <?php echo $row['d'] ?>
+
 </div>
 
 <div class="modal-footer">
