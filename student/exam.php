@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php 
-  include ("php/bg.php");
+  include ("php/bg_exam.php");
 
   if ($_GET) {
     $id = $_GET['id'];
@@ -124,7 +124,7 @@ $dtime = $stime  * 60000;
 
   
 
-<div class="alert alert-primary" role="alert">
+<div class="alert" style="background-color: white " role="alert">
   <?php echo $counter ?>) <?php echo $row['question'] ?>
 <input type="hidden" value="<?php echo $row['exam_id'] ?>" name="qid">
 
@@ -151,7 +151,7 @@ $dtime = $stime  * 60000;
 </div>
 
 <div class="modal-footer">
-  <button  type="submit" name="bexm" <?php echo $button?>  class="btn btn-warning">Lock</button>
+  <button  type="submit" name="bexm" <?php echo $button?>  class="btn btn-warning">Submit</button>
 </div>
 
 </form>

@@ -52,11 +52,11 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
                                             <th style="width:40%">Exam List</th>
 
 
-                                            <th style="width:5%">timer</th>
+                                            <th style="width:5%">Time(mins)</th>
 
                                             <th style="width:20%">Program</th>
                                           
-                                            <th style="width:10%">Action</th>                         
+                                            <th style="width:12%">Action</th>                         
                                        
                                             
                                            

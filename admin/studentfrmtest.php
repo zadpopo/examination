@@ -127,9 +127,9 @@ $studentnumb = ($date). "-".($random);
 <div class="form-group col-md-4">
    <label for="" ><b style=color:red; >*</b>Package</label>
    <select class="form-control" name="pack" required>
-    <option value="FirstTake">Full Review</option>
-    <option  value="Retake">Intensive</option>
-       <option  value="Retake">Final Coaching</option>
+    <option value="Full Review">Full Review</option>
+    <option  value="Intensive">Intensive</option>
+       <option  value="Final Coaching">Final Coaching</option>
      </select>
 </div>
 
@@ -167,17 +167,17 @@ while ($row = mysqli_fetch_array($result1)) {
 
    <div class="form-group col-md-3">
     <label for="Phone"><b style=color:red; >*</b>Guardian Name</label>
-    <input type="text" class="form-control" id="Phone" name="phone" placeholder="">
+    <input type="text" class="form-control" id="Phone" name="guardianname" placeholder="">
   </div>
 
   <div class="form-group col-md-3">
     <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
-    <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
+    <input type="number" class="form-control" id="Phone" name="gphone" placeholder="Number">
   </div>
 
    <div class="form-group col-md-3">
     <label for="Phone"><b style=color:red; >*</b>Relationship</label>
-    <input type="text" class="form-control" id="Phone" name="phone" placeholder="">
+    <input type="text" class="form-control" id="Phone" name="relationship" placeholder="">
   </div>
 
   <div class="form-group col-md-3">
@@ -237,13 +237,16 @@ $studentnumb = ($date). "-".($random);
 
 
 	$phone=$_POST['phone'];
-		
+
+  $guardianname=$_POST['guardianname'];
+  $gphone=$_POST['gphone'];
+		$relationship=$_POST['relationship'];
 		$gender = $_POST['gender'];
 	
 
 
 
-     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`,Suffix,`Nickname`, `Address`, `EnrolledSchool`, Program, Status, Package,`Gender`,`TelPhone`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname','$sname','$nname', '$address','$enrolledschool' ,'$prog','$stats','$pack','$gender','$phone','$db_pass')";
+     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`,Suffix,`Nickname`, `Address`, `EnrolledSchool`, Program, Status, Package,`Gender`,`TelPhone`,`GuardianName`,`GContactNumber`,`Relationship`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname','$sname','$nname', '$address','$enrolledschool' ,'$prog','$stats','$pack','$gender','$phone','$guardianname','$gphone','$relationship','$db_pass')";
 
      mysqli_query($conn," INSERT INTO `logtbl` ( `user`, `pass`, `position`) VALUES ( '$studentnumb', '$db_pass', 'student')");
 

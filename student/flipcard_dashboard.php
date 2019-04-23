@@ -26,6 +26,13 @@ include("php/connections.php");
   $d1= $r1->fetch_assoc();
   $active = $d1['year'];
 
+$q2 ="select * from studenttbl where student_number ='$user'";
+$r2 = mysqli_query($conn,$q2);
+$d2 =$r2->fetch_assoc();
+
+
+
+
 
 ?>
 </head>
@@ -38,50 +45,21 @@ include("php/connections.php");
       <br>
 
       <i class="fas fa-user-graduate fa-5x"></i>
-      <h3> Examination </h3>
+      <h3>Informations </h3>
 
     </div>
     <div class="flip-card-back">
       <br>
-      <h3>Finished Exams</h3> 
-      <p><?php echo $active ?></p>  
+      <h3><?php echo $d2['Program'];?></h3> 
+      <p><?php echo $d2['Status'];?></p>  
 
-      <h2><p></p></h2>
+      <p><?php echo $d2['Package'];?></p>
     </div>
   </div>
 </div>
 
 <!---flipcard2-exam--->
 
-<div class="flip-card2">
-  <div class="flip-card-inner2">
-    <div class="flip-card-front2" >
-      <br>
-
-      <i class="fas fa-file-alt fa-5x"></i>
-      <h3> Attendance</h3>
-
-    </div>
-    <div class="flip-card-back2">
-      <br>
-      <h2>Details</h2> 
-      <p><?php echo $active ?></p> 
-
-<?php 
-
-
-$q3="SELECT COUNT(*) as ex FROM `lexamtb` WHERE `actyear` = '$active'";
-$r3= $conn->query($q3);
-$d3= $r3->fetch_assoc();
-$countt3 = $d3['ex'];
-
-
-?>
-
-      <h3><p><?php echo $countt3 ?></p></h3>
-    </div>
-  </div>
-</div>
 
 <!---flipcard3-uncollected fee--->
 
@@ -91,14 +69,15 @@ $countt3 = $d3['ex'];
       <br>
 
       <i class="fas fa-money-check-alt fa-5x"></i>
-      <h3>Unpaid Fee</h3>
+      <h3>SOA</h3>
 
     </div>
     <div class="flip-card-back3">
       <br>
-      <h2>Details</h2> 
-      <p>Numbers</p> 
-      <p></p>
+      <h4 style="color:green">Please Pay fully before due date</h4> 
+      <p><h5>Balance ₱ <?php echo $d2['balance'];?></h5></p>
+  
+     
     </div>
   </div>
 </div>
