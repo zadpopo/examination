@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 09:17 AM
+-- Generation Time: Apr 23, 2019 at 06:26 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -41,8 +41,44 @@ CREATE TABLE `answertbl` (
 --
 
 INSERT INTO `answertbl` (`answer_id`, `exam_no`, `q_id`, `stud_id`, `final_ans`) VALUES
+(17, '2019-35474353', '3', '2019-student', 'b'),
 (18, '2019-35589872', '7', '2019-student', 'b'),
-(19, '2019-35589872', '9', '2019-student', 'c');
+(19, '2019-35589872', '9', '2019-student', 'c'),
+(21, '2019-92213473', '11', '2019-5911', 'c'),
+(22, '2019-92213473', '12', '2019-5911', 'a'),
+(23, '2019-17166861', '15', '2019-9466', 'a'),
+(24, '2019-17166861', '16', '2019-9466', 'b'),
+(25, '2019-17166861', '17', '2019-9466', 'a'),
+(26, '2019-21389125', '10', '2019-9466', 'c');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendancetbl`
+--
+
+CREATE TABLE `attendancetbl` (
+  `timer_id` int(11) NOT NULL,
+  `program` varchar(225) NOT NULL,
+  `block` varchar(255) NOT NULL,
+  `timestart` time NOT NULL,
+  `timeend` time NOT NULL,
+  `dateset` date NOT NULL,
+  `active` varchar(225) NOT NULL,
+  `status` enum('0','1') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `attendancetbl`
+--
+
+INSERT INTO `attendancetbl` (`timer_id`, `program`, `block`, `timestart`, `timeend`, `dateset`, `active`, `status`) VALUES
+(1, 'Criminology', '4', '00:02:00', '23:11:00', '2019-04-11', '2019-season1', '1'),
+(2, 'Criminology', '5', '11:11:00', '11:11:00', '2019-04-11', '2019-season1', '1'),
+(3, 'Criminology', '5', '08:50:00', '17:00:00', '2019-05-09', '2019-season1', '1'),
+(4, 'Criminology', '5', '20:00:00', '10:00:00', '2019-04-11', '2019-season1', '1'),
+(5, 'Criminology', '5', '08:00:00', '23:30:00', '2019-04-11', '2019-season1', '1'),
+(6, 'Midwifery', '8', '14:40:00', '17:05:00', '2019-04-15', '2020-season3', '1');
 
 -- --------------------------------------------------------
 
@@ -67,7 +103,10 @@ INSERT INTO `block` (`block_id`, `program`, `block_name`, `slots`, `year`, `lect
 (4, 'Criminology', 'Block 1', '50', '2019-season1', 'Tran, Ming Nhat'),
 (5, 'Criminology', 'block 2', '30', '2019-season1', 'Tran, Ming Nhat'),
 (6, 'Rad Tech', 'Block1', '30', '2019-season1', 'Tran, Ming Nhat'),
-(7, 'Information Technology', 'test', '10', '2019-season1', 'test');
+(7, 'Information Technology', 'test', '10', '2019-season1', 'test'),
+(8, 'Midwifery', 'midblock', '30', '2020-season3', 'trisha'),
+(9, 'Midwifery', 'midblock', '3', '2020-season3', 'Obama'),
+(10, 'Rad Tech', 'midblock', '3', '2020-season3', 'Obama');
 
 -- --------------------------------------------------------
 
@@ -97,7 +136,9 @@ INSERT INTO `emptbl` (`emp_id`, `e_id`, `fname`, `mname`, `lname`, `emp_bday`, `
 (2, 'admin', 'asdasd', 'asd', 'asd', '2019-02-15', 'asdasdasdas', 'Female', '231312321', 'YWRtaW4=', 'admin'),
 (3, '2019-lecturer', 'dsadsad', 'asddasdasdasas', 'dsadsadsa', '2019-08-09', 'asdasdasd', 'Female', '23213123213', 'bGVjdHVyZXI=', 'lecturer'),
 (4, '2019-student', 'sdasdasdasdas', 'sdaasdasd', 'asdasdasdasd', '2019-02-21', 'asdsadasd', 'Female', '23213213', 'c3R1ZGVudA==', 'student'),
-(5, '2019-99786486', 'rose', 'mary', 'tran', '2019-02-15', 'manila', 'Female', '231312312321312', 'dHJhbg==', 'lecturer');
+(5, '2019-99786486', 'rose', 'mary', 'tran', '2019-02-15', 'manila', 'Female', '231312312321312', 'dHJhbg==', 'lecturer'),
+(6, '2019-98545312', 'Nick', 'Nickky', 'Jonas', '1999-09-08', 'Manila', 'Male', '99090909', 'Nzg5', 'lecturer'),
+(7, '2019-62582842', 'testtest', 'test', 'test', '2019-04-09', 'dfssdfds', 'Male', '3324342', 'YXNkc2FkYXNk', 'lecturer');
 
 -- --------------------------------------------------------
 
@@ -122,7 +163,10 @@ CREATE TABLE `enrolltbl` (
 INSERT INTO `enrolltbl` (`enroll_id`, `enroll_date`, `datee`, `student_number`, `program`, `block_id`, `tuition`) VALUES
 (7, '2019-season1', '0000-00-00', '2019-5855', 'Information Technology', '7', '1.00'),
 (8, '2019-season1', '0000-00-00', '2019-4254', 'Information Technology', '7', '1.00'),
-(9, '2019-season1', '2019-04-04', '2019-student', 'Criminology', '5', '100.00');
+(9, '2019-season1', '2019-04-04', '2019-student', 'Criminology', '5', '100.00'),
+(11, '2020-season3', '2019-04-15', '2019-5911', 'Midwifery', '8', '20000.00'),
+(12, '2020-season3', '2019-04-16', '2019-8127', 'Rad Tech', '10', '15000.00'),
+(13, '2019-season1', '2019-04-23', '2019-9466', 'Criminology', '4', '11.00');
 
 -- --------------------------------------------------------
 
@@ -162,8 +206,15 @@ CREATE TABLE `evaltbl` (
 --
 
 INSERT INTO `evaltbl` (`eval_id`, `stud_no`, `exam_no`, `active`, `a1`, `a2`, `a3`, `a4`, `a5`, `a6`, `a7`, `a8`, `a9`, `a10`, `a11`, `a12`, `a13`, `a14`, `a15`, `a16`, `a17`, `a18`, `a19`, `comment`) VALUES
+(14, '2019-student', '2019-35474353', '2019-season1', '2', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', '2', '3', '4', '3', '2', '1', 'report1'),
 (16, '2019-student', '2019-35589872', '2019-season1', '3', '2', '3', '2', '3', '2', '3', '2', '3', '2', '3', '2', '3', '2', '3', '2', '3', '2', '3', 'zczxczxbdjskdbhsdsa\r\ndas\r\nd\r\nsad\r\nasd\r\nas\r\ndasldjkashdklasjkdljaskldjlaskjdlkajslkdjaslkda'),
-(19, '2019-student', '2019-35474353', '2019-season1', '4', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '3', '4', '3', '3', '3', '3', '3', '');
+(23, '2019-student', '2019-21389125', '2019-season1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', ''),
+(24, '2019-student', '2019-21389125', '2019-season1', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', ''),
+(26, '2019-5911', '2019-92213473', '2020-season3', '1', '1', '1', '1', '3', '4', '3', '2', '4', '3', '3', '2', '3', '4', '4', '3', '3', '4', '2', 'fuck boy!'),
+(27, '2019-9466', '2019-17166861', '2019-season1', '2', '2', '3', '3', '3', '3', '2', '2', '2', '3', '3', '3', '2', '2', '2', '2', '2', '3', '3', 'yeahboy!!!'),
+(28, '2019-9466', '2019-21389125', '2019-season1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', ''),
+(29, '2019-9466', '2019-35589872', '2019-season1', '2', '3', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2', '3', ''),
+(30, '2019-9466', '2019-35474353', '2019-season1', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '4', '3', '2', '1', '');
 
 -- --------------------------------------------------------
 
@@ -193,7 +244,15 @@ INSERT INTO `examtbl` (`exam_id`, `exam_no`, `question`, `answer`, `a`, `b`, `c`
 (4, '2019-54396675', 'test', 'b', 'test1', 'test2', 'test3', '1'),
 (6, '2019-54396675', 'assa', 'c', 'apsa', 'tiger', 'toprank', '1'),
 (7, '2019-35589872', 'how many power ranger in original', 'a', '5', '4', '3', '1'),
-(9, '2019-35589872', 'what is the color of pikachu', 'c', 'red', 'blue', 'yellow', '1');
+(9, '2019-35589872', 'what is the color of pikachu', 'c', 'red', 'blue', 'yellow', '1'),
+(10, '2019-21389125', 'sdasda', 'a', 'a', 'a', 'a', '1'),
+(11, '2019-92213473', 'what is the color of banana', 'c', 'red', 'black', 'yellow', '1'),
+(12, '2019-92213473', 'Logo of Microsoft', 'a', 'Windows', 'Gate', 'Door', '1'),
+(13, '2019-13247641', 'asdsa', 'a', 'sadsa', 'dsadsad', 'asdsa', '1'),
+(14, '2019-41429791', 'what is the color of the sun', 'a', 'red', 'yellow', 'orange', '1'),
+(15, '2019-17166861', 'Logo of Microsoft', 'a', 'Windows', 'Gate', 'Door', '1'),
+(16, '2019-17166861', 'what is the color of banana', 'b', 'red', 'yellow', 'green', '1'),
+(17, '2019-17166861', 'which one is alcohol', 'c', 'King', 'Lord', 'Emperador', '1');
 
 -- --------------------------------------------------------
 
@@ -220,7 +279,12 @@ INSERT INTO `lexamtb` (`lexamtbl_id`, `exam_name`, `program`, `exam_no`, `actyea
 (10, 'quiz 1 ', 'Information Technology', '2019-41429791', '2019-season1', '0'),
 (11, 'quiz 1 ', 'Business Administrator', '2019-29292472', '2019-season1', '0'),
 (12, 'quiz 1 ', 'Rad Tech', '2019-62842523', '2019-season1', '0'),
-(13, 'test2 ', 'Criminology', '2019-35589872', '2019-season1', '1');
+(13, 'test2 ', 'Criminology', '2019-35589872', '2019-season1', '1'),
+(14, 'testtime ', 'Criminology', '2019-21389125', '2019-season1', '1'),
+(15, 'test_boy ', 'Rad Tech', '2019-13247641', '2020-season3', '0'),
+(16, 'test_boy1 ', 'Midwifery', '2019-92213473', '2020-season3', '1'),
+(17, 'testing ', 'Criminology', '2019-11682851', '2020-season3', '1'),
+(18, 'examtest ', 'Criminology', '2019-17166861', '2019-season1', '1');
 
 -- --------------------------------------------------------
 
@@ -246,14 +310,12 @@ INSERT INTO `logtbl` (`log_id`, `user`, `pass`, `position`) VALUES
 (7, '2019-4254', 'dHJhbg==', 'student'),
 (9, '2019-99786486', 'dHJhbg==', 'lecturer'),
 (10, '2019-5855', 'c3R1ZGVudA==', 'student'),
-(11, '2019-3426', '', 'student'),
-(12, '2019-8127', '', 'student'),
-(13, '2019-3248', 'MjAxOS0zMjQ4', 'student'),
-(14, '2019-9149', 'MTExMTE=', 'student'),
-(15, '2019-5526', 'NTU1', 'student'),
-(16, '2019-9263', 'MTEx', 'student'),
-(17, '2019-7597', 'MjIy', 'student'),
-(18, '2019-7939', 'OTk5', 'student');
+(11, '2019-9683', 'MDAwMDA=', 'student'),
+(12, '2019-5911', 'Nzc3', 'student'),
+(13, '2019-98545312', 'Nzg5', 'lecturer'),
+(14, '2019-62582842', 'YXNkc2FkYXNk', 'lecturer'),
+(15, '2019-2241', 'MTEx', 'student'),
+(16, '2019-9466', 'MTEx', 'student');
 
 -- --------------------------------------------------------
 
@@ -275,7 +337,8 @@ INSERT INTO `programtbl` (`program_id`, `program_name`) VALUES
 (2, 'Criminology'),
 (4, 'Information Technology'),
 (5, 'Business Administrator'),
-(6, 'Rad Tech');
+(6, 'Rad Tech'),
+(7, 'Midwifery');
 
 -- --------------------------------------------------------
 
@@ -310,7 +373,7 @@ CREATE TABLE `studenttbl` (
   `Status` varchar(255) NOT NULL,
   `Package` varchar(255) NOT NULL,
   `Gender` varchar(255) NOT NULL,
-  `ContactNumber` varchar(255) NOT NULL,
+  `TelPhone` varchar(255) NOT NULL,
   `GuardianName` varchar(255) NOT NULL,
   `GContactNumber` varchar(255) NOT NULL,
   `Relationship` varchar(255) NOT NULL,
@@ -322,17 +385,39 @@ CREATE TABLE `studenttbl` (
 -- Dumping data for table `studenttbl`
 --
 
-INSERT INTO `studenttbl` (`stud_id`, `student_number`, `FirstName`, `MiddleName`, `LastName`, `Suffix`, `Nickname`, `Address`, `EnrolledSchool`, `Program`, `Status`, `Package`, `Gender`, `ContactNumber`, `GuardianName`, `GContactNumber`, `Relationship`, `Password`, `balance`) VALUES
-(1, '2019-student', 'Erick', 'M', 'N', '', '', 'Manila', 'enrolledschool', 'Criminology', '', '', 'male', '', '', '652981905606', '', 'c3R1ZGVudA==', '182.00'),
-(15, '2019-4254', 'rose', 'mary', 'tran', '', '', 'manila', 'informatics', 'Information Technology', '', '', 'Female', '', '', '02020202', '', 'dHJhbg==', '99.00'),
-(16, '2019-5855', 'test1', 'test1', 'test1', '', '', 'test1', 'test1', 'Information Technology', '', '', 'Male', '', '', '212131', '', 'c3R1ZGVudA==', '99.00'),
-(17, '2019-8127', 'Educ', 'Rizal', 'Jose', 'Jr', '', 'Manila', 'UE', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', '', '', 'Father', '', '', '0.00'),
-(18, '2019-3248', 'Nadine', 'Na', 'Na', 'Jr', '', 'Manila', 'UE', 'Business Administrator', 'FirstTake', 'Retake', 'Female', '', '', 'Mother', '', 'MjAxOS0zMjQ4', '0.00'),
-(19, '2019-9149', 'Ruroni', 'Ken', 'Kenshin', 'Jr', '', 'Japan', 'Tokyo Uni', 'Rad Tech', 'FirstTake', 'Retake', 'Male', '', '', 'Mom', '', 'MTExMTE=', '0.00'),
-(20, '2019-5526', 'AAAA', 'BBB', 'CCC', 'Jr', 'ABC', 'Manila', 'UE', 'Nurse', 'FirstTake', 'FirstTake', 'Male', '', '', 'father', '', 'NTU1', '0.00'),
-(21, '2019-9263', 'Donal', 'Dol', 'Trump', '', 'Donalboy', 'New York', 'Havard', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', '090981021', 'Daddy', '0909556541650', 'father', 'MTEx', '0.00'),
-(22, '2019-7597', 'Steve', 'SJ', 'Jobs', '', 'Apple', 'New York', 'Havard', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', '09091926', 'Daddy', '099992566', 'father', 'MjIy', '0.00'),
-(23, '2019-7939', 'wda', 'wfad', 'wfad', '', 'wdwdddd', 'acssc', 'sacasc', 'Criminology', 'FirstTake', 'Intensive', 'Male', '111112112', 'adwd', '112212', 'father', 'OTk5', '0.00');
+INSERT INTO `studenttbl` (`stud_id`, `student_number`, `FirstName`, `MiddleName`, `LastName`, `Suffix`, `Nickname`, `Address`, `EnrolledSchool`, `Program`, `Status`, `Package`, `Gender`, `TelPhone`, `GuardianName`, `GContactNumber`, `Relationship`, `Password`, `balance`) VALUES
+(1, '2019-student', 'Erick', 'M', 'N', '', '', 'Manila', 'enrolledschool', 'Criminology', '', '', 'male', '652981905606', '', '', '', 'c3R1ZGVudA==', '182.00'),
+(15, '2019-4254', 'rose', 'mary', 'tran', '', '', 'manila', 'informatics', 'Information Technology', '', '', 'Female', '02020202', '', '', '', 'dHJhbg==', '99.00'),
+(16, '2019-5855', 'test1', 'test1', 'test1', '', '', 'test1', 'test1', 'Information Technology', '', '', 'Male', '212131', '', '', '', 'c3R1ZGVudA==', '99.00'),
+(17, '2019-8127', 'Educ', 'Rizal', 'Jose', 'Jr', '', 'Manila', 'UE', 'Rad Tech', 'FirstTake', 'FirstTake', 'Male', 'Father', '', '', '', '', '15000.00'),
+(18, '2019-3248', 'Nadine', 'Na', 'Na', 'Jr', '', 'Manila', 'UE', 'Business Administrator', 'FirstTake', 'Retake', 'Female', 'Mother', '', '', '', 'MjAxOS0zMjQ4', '0.00'),
+(19, '2019-9149', 'Ruroni', 'Ken', 'Kenshin', 'Jr', '', 'Japan', 'Tokyo Uni', 'Rad Tech', 'FirstTake', 'Retake', 'Male', 'Mom', '', '', '', 'MTExMTE=', '0.00'),
+(20, '2019-5526', 'AAAA', 'BBB', 'CCC', 'Jr', 'ABC', 'Manila', 'UE', 'Nurse', 'FirstTake', 'FirstTake', 'Male', 'father', '', '', '', 'NTU1', '0.00'),
+(21, '2019-9683', 'asdsad', 'sadsad', 'sadasdsad', 'asdsad', 'asdsad', 'sadsadasd', 'sadsadasdas', 'Criminology', 'Retake', 'FirstTake', 'Male', 'asdsadas', '', '', '', 'MDAwMDA=', '0.00'),
+(22, '2019-5911', 'Fernandez', 'Fer', 'Boy', '', 'Nakiboy', 'Manila', 'UE', 'Midwifery', 'FirstTake', 'Retake', 'Male', 'Father', '', '', '', 'Nzc3', '15000.00'),
+(24, '2019-9466', 'Educ', 'Rizal', 'Manzano', '', 'Nakiboy', 'Manila', 'UE', 'Criminology', 'FirstTake', 'Final Coaching', 'Male', '091489106', 'Macaroni', '09455555', 'father', 'MTEx', '11.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `s_attendancetbl`
+--
+
+CREATE TABLE `s_attendancetbl` (
+  `sa_id` int(11) NOT NULL,
+  `attendance_id` varchar(255) NOT NULL,
+  `stud_id` varchar(255) NOT NULL,
+  `time_In` time NOT NULL,
+  `time_out` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `s_attendancetbl`
+--
+
+INSERT INTO `s_attendancetbl` (`sa_id`, `attendance_id`, `stud_id`, `time_In`, `time_out`) VALUES
+(10, '5', '2019-student', '16:53:52', '12:20:23'),
+(11, '6', '2019-5911', '14:39:40', '08:23:35');
 
 -- --------------------------------------------------------
 
@@ -353,8 +438,12 @@ CREATE TABLE `timetbl` (
 INSERT INTO `timetbl` (`timer_id`, `exam_id`, `duration`) VALUES
 (3, '2019-54396675', '1'),
 (5, '2019-62842523', '3'),
-(7, '2019-35474353', '60'),
-(8, '2019-35589872', '1');
+(7, '2019-35474353', '1'),
+(8, '2019-35589872', '1'),
+(9, '2019-21389125', '30'),
+(10, '2019-92213473', '2'),
+(11, '2019-41429791', '5'),
+(12, '2019-17166861', '5');
 
 -- --------------------------------------------------------
 
@@ -376,10 +465,7 @@ CREATE TABLE `transactiontbl` (
 --
 
 INSERT INTO `transactiontbl` (`trans_id`, `stud_id`, `description`, `receipt`, `amount`, `trans_date`) VALUES
-(14, '2019-student', 'Down payment', 'cfdghg', '9.00', '2019-04-03'),
-(15, '2019-student', 'Down payment', '1', '1.00', '2019-04-03'),
-(16, '2019-student', 'Down payment', 'd21', '2.00', '2019-04-03'),
-(17, '2019-student', 'Down payment', 'fgfgrf', '5.00', '2019-04-03');
+(21, '2019-5911', 'Down payment', 'kjsadiu', '5000.00', '2019-04-15');
 
 -- --------------------------------------------------------
 
@@ -401,7 +487,8 @@ INSERT INTO `yeartbl` (`year_id`, `year`, `status`) VALUES
 (10, '2019-season1', '1'),
 (11, '2019-season2', '0'),
 (12, '2019-season3', '0'),
-(13, '2019-season4', '0');
+(13, '2019-season4', '0'),
+(14, '2020-season3', '0');
 
 --
 -- Indexes for dumped tables
@@ -412,6 +499,12 @@ INSERT INTO `yeartbl` (`year_id`, `year`, `status`) VALUES
 --
 ALTER TABLE `answertbl`
   ADD PRIMARY KEY (`answer_id`);
+
+--
+-- Indexes for table `attendancetbl`
+--
+ALTER TABLE `attendancetbl`
+  ADD PRIMARY KEY (`timer_id`);
 
 --
 -- Indexes for table `block`
@@ -468,6 +561,12 @@ ALTER TABLE `studenttbl`
   ADD PRIMARY KEY (`stud_id`);
 
 --
+-- Indexes for table `s_attendancetbl`
+--
+ALTER TABLE `s_attendancetbl`
+  ADD PRIMARY KEY (`sa_id`);
+
+--
 -- Indexes for table `timetbl`
 --
 ALTER TABLE `timetbl`
@@ -493,79 +592,91 @@ ALTER TABLE `yeartbl`
 -- AUTO_INCREMENT for table `answertbl`
 --
 ALTER TABLE `answertbl`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `attendancetbl`
+--
+ALTER TABLE `attendancetbl`
+  MODIFY `timer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `block`
 --
 ALTER TABLE `block`
-  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `emptbl`
 --
 ALTER TABLE `emptbl`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `enrolltbl`
 --
 ALTER TABLE `enrolltbl`
-  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `enroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `evaltbl`
 --
 ALTER TABLE `evaltbl`
-  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `examtbl`
 --
 ALTER TABLE `examtbl`
-  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `lexamtb`
 --
 ALTER TABLE `lexamtb`
-  MODIFY `lexamtbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `lexamtbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `logtbl`
 --
 ALTER TABLE `logtbl`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `programtbl`
 --
 ALTER TABLE `programtbl`
-  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `studenttbl`
 --
 ALTER TABLE `studenttbl`
-  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `s_attendancetbl`
+--
+ALTER TABLE `s_attendancetbl`
+  MODIFY `sa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `timetbl`
 --
 ALTER TABLE `timetbl`
-  MODIFY `timer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `timer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `transactiontbl`
 --
 ALTER TABLE `transactiontbl`
-  MODIFY `trans_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `trans_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `yeartbl`
 --
 ALTER TABLE `yeartbl`
-  MODIFY `year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

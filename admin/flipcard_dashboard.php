@@ -93,24 +93,7 @@ $countt3 = $d3['ex'];
   </div>
 </div>
 
-<!---flipcard3-uncollected fee--->
+<!---flipcard3--->
 
-<div class="flip-card3">
-  <div class="flip-card-inner3">
-    <div class="flip-card-front3" >
-      <br>
-
-      <i class="fas fa-money-check-alt fa-5x"></i>
-      <h3></h3>
-
-    </div>
-    <div class="flip-card-back3">
-      <br>
-      <h2>Details</h2> 
-      <p>Numbers</p> 
-      <p></p>
-    </div>
-  </div>
-</div>
 </body>
 </html>

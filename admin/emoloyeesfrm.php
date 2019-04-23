@@ -36,11 +36,11 @@
 
 
 
- <div class="container mx-auto" style="background-color: black; opacity: 0.90" ><br><br>
+ <div class="container mx-auto col-md-9 text-center" style="background-color: black; opacity: 0.90" ><br><br>
 
 <form method="POST" action="">
   
-  <h2 class="text-white">Employee information</h2><br>
+  <h2 class="text-white text-center">Employee information</h2><br>
 
 <div class="form-row text-white ">
   <div class="form-group col-md-5">
