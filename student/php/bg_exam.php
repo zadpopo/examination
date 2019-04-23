@@ -11,7 +11,7 @@
 
 
 </head>
-<body style="background-image: url('../img/bgmain.jpg'); background-color: white; background-position: top center; background-size: cover; background-repeat: no-repeat; width: 100%; height: 100% ;" >
+<body style="background-color: black" >
   <?php
 
 include ("connections.php");

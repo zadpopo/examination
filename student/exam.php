@@ -1,6 +1,11 @@
-
-  <?php 
-  include ("php/nav.php");
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Examination</title>
+</head>
+<body>
+<?php 
+  include ("php/bg_exam.php");
 
   if ($_GET) {
     $id = $_GET['id'];
@@ -119,7 +124,7 @@ $dtime = $stime  * 60000;
 
   
 
-<div class="alert alert-primary" role="alert">
+<div class="alert" style="background-color: white " role="alert">
   <?php echo $counter ?>) <?php echo $row['question'] ?>
 <input type="hidden" value="<?php echo $row['exam_id'] ?>" name="qid">
 
@@ -128,25 +133,32 @@ $dtime = $stime  * 60000;
   <input class="form-check-input" <?php echo $radio ?>  type="radio" name="ans" id="exampleRadios1" value="a" required>
   
   <?php echo $row['a'] ?>
-  </label>
+
 </div>
 
 <div class="form-check">
   <input class="form-check-input" <?php echo $radio ?>  type="radio" name="ans" id="exampleRadios2" value="b" >
 
    <?php echo $row['b'] ?>
-  </label>
+  
 </div>
 
 <div class="form-check">
   <input class="form-check-input" <?php echo $radio ?> type="radio" name="ans" id="exampleRadios3" value="c">
 
   <?php echo $row['c'] ?>
-  </label>
+  
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" <?php echo $radio ?> type="radio" name="ans" id="exampleRadios4" value="d">
+
+  <?php echo $row['d'] ?>
+
 </div>
 
 <div class="modal-footer">
-  <button  type="submit" name="bexm" <?php echo $button?>  class="btn btn-warning">Lock</button>
+  <button  type="submit" name="bexm" <?php echo $button?>  class="btn btn-warning">Submit</button>
 </div>
 
 </form>
@@ -219,5 +231,7 @@ function confirm_pay() {
 }
 </script>
 
-  </body>
+</body>
 </html>
+  
+

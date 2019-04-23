@@ -1,6 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam List</title>
+</head>
+<body>
 <?php 
  include ("php/nav.php");
-
 
 
   $s2= "SELECT * FROM studenttbl WHERE student_number = '$user'";
@@ -10,11 +15,31 @@
   $d2= $r2->fetch_assoc();
 
   $prog = $d2['Program'];
-  
 
-  $q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND status='1' AND program='$prog'";
+
+
+
+ $cenroll = mysqli_query($conn, "SELECT * FROM enrolltbl WHERE enroll_date='$active' and student_number ='$user'");
+
+ $CheckEnroll= mysqli_num_rows($cenroll);
+
+if ($CheckEnroll > 0) {
+
+
+$q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND status='1' AND program='$prog'";
  
  $r1= mysqli_query($conn,$q1);
+
+
+
+}else{
+
+
+}
+
+
+
+
 
 
 
@@ -61,9 +86,9 @@
 
  $exam_no= $row["exam_no"];
 
- 	 $button2='hidden';
+   $button2='hidden';
 
-	$button= '';  
+  $button= '';  
 
   $check_exam = mysqli_query($conn, "SELECT * FROM evaltbl WHERE exam_no='$exam_no' AND stud_no='$user' ");
   $check_exam_row = mysqli_num_rows($check_exam);
@@ -145,3 +170,7 @@ function confirm_pay() {
   
 }
 </script>
+
+</body>
+</html>
+

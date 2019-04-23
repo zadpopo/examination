@@ -15,12 +15,10 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
 
 <div class="container">
-<br>
 
-
-<br>
-
-
+<div class="card" style="width: 95%;">
+  <div class="card-body">
+    <h5 class="card-title text-center">Result of Exam</h5>
 
 
 
@@ -101,12 +99,27 @@ $rows_done_count= mysqli_num_rows($rows_done);
   ?>                         
 
   </tbody>
-	
+</table>
+<style>
+  
+.table{
+
+      border-collapse: collapse;
+  }
+
+.table-wrap {
+  height: 300px;
+  overflow-y: scroll;
+  display: inline-block;
+}
+
+</style>	
 
 
 
 
-</div></div>
+</div>
+</div>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
  <script>
       $(document).ready(function() {

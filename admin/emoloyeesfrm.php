@@ -36,11 +36,11 @@
 
 
 
- <div class="container mx-auto" style="background-color: black; opacity: 0.90" ><br><br>
+ <div class="container mx-auto col-md-9 text-center" style="background-color: black; opacity: 0.90" ><br><br>
 
 <form method="POST" action="">
   
-  <h2 class="text-white">Employee information</h2><br>
+  <h2 class="text-white text-center">Employee information</h2><br>
 
 <div class="form-row text-white ">
   <div class="form-group col-md-5">
@@ -62,24 +62,12 @@
   </div>
 
 
-   <div class="form-group col-md-5">
-
-  <!--  
-    <label for="" style="color: white" >Position:</label>
+   <div class="form-group col-md-5" hidden="">
+    <label style="color: white" >Position:</label>
+        <input type="hidden" class="form-control" name="prog" value="lecturer"  required>
  
-    <select class="form-control " name="prog" >
-
-    <option value='' >Select</option>
-    <option value='lecturer'>Lecturer</option>
-    <option value='marketing'>Marketing</option> 
-
-   
-    </select>
--->
-
-     
   </div>
-<input type="hidden" class="form-control" name="prog" value="lecture"  required>
+
 
 <div class="form-group col-md-5" >
     <label for="LastName" style="color: white">Birthday</label>
