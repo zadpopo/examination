@@ -41,7 +41,7 @@ $studentnumb = ($date). "-".($random);
  ?>
 
 
-<div class="container col-md-8 " style="background-color: rgba(0,0,0,.7)">
+<div class="container col-md-10 " style="background-color: rgba(0,0,0,.7)">
 
   <div class="box" >
 <br>
@@ -109,7 +109,10 @@ $studentnumb = ($date). "-".($random);
     <label for="Phone"><b style=color:red; >*</b>Contact Number</label>
     <input type="number" class="form-control" id="Phone" name="phone" placeholder="Number">
   </div>
-
+  <div class="form-group col-md-4">
+    <label for="Phone"><b style=color:red; >*</b>Email</label>
+    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+  </div>
 
 
 
@@ -237,6 +240,9 @@ $studentnumb = ($date). "-".($random);
 
 
 	$phone=$_POST['phone'];
+  $email=$_POST['email'];
+
+
 
   $guardianname=$_POST['guardianname'];
   $gphone=$_POST['gphone'];
@@ -246,7 +252,7 @@ $studentnumb = ($date). "-".($random);
 
 
 
-     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`,Suffix,`Nickname`, `Address`, `EnrolledSchool`, Program, Status, Package,`Gender`,`TelPhone`,`GuardianName`,`GContactNumber`,`Relationship`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname','$sname','$nname', '$address','$enrolledschool' ,'$prog','$stats','$pack','$gender','$phone','$guardianname','$gphone','$relationship','$db_pass')";
+     $sql= "INSERT INTO `studenttbl` (`student_number`,`FirstName`, `MiddleName`, `LastName`,Suffix,`Nickname`, `Address`, `EnrolledSchool`, Program, Status, Package,`Gender`,`TelPhone`,`Email`,`GuardianName`,`GContactNumber`,`Relationship`,`Password`) VALUES ( '$studentnumb','$fname', '$mname', '$lname','$sname','$nname', '$address','$enrolledschool' ,'$prog','$stats','$pack','$gender','$phone','$email','$guardianname','$gphone','$relationship','$db_pass')";
 
      mysqli_query($conn," INSERT INTO `logtbl` ( `user`, `pass`, `position`) VALUES ( '$studentnumb', '$db_pass', 'student')");
 

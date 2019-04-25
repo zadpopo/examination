@@ -48,7 +48,7 @@
 <br>
   <center>
 
-<h2 style="color: white"><b>Exam Sheet</b><h2> 
+<h2 style="color: white"><b></b><h2> 
 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#cq">
 Add Question
 </button>
@@ -235,6 +235,20 @@ if (isset($_POST['qtime'])) {
   </div>
 </div>
 
+<div class="form-group row">
+
+ <div class="col-sm-1">
+    <input type="checkbox" name="ans4" value="d" onclick="FillAdd(this.form)">
+    </div>
+
+    <label for="" class="col-sm-1 col-form-label">D</label>
+
+
+    <div class="col-sm-10">
+    <input type="text" name="d" class="form-control" required id="" placeholder="">
+  </div>
+</div>
+
 <div class="form-group row" hidden>
     <label for="" class="col-sm-2 col-form-label">Answer</label>
     <div class="col-sm-10">
@@ -381,6 +395,9 @@ if (isset($_POST['beditmin'])) {
                                         <td>a) <?php echo $row["a"]; ?> <br>
                                             b) <?php echo $row["b"]; ?> <br>
                                             c) <?php echo $row["c"]; ?> <br>
+                                            d) <?php echo $row["d"]; ?> <br>
+                                            
+
                                         </td>
 
 
@@ -457,12 +474,13 @@ if(isset($_POST["qadd"])){
   $a = $_POST["a"];
   $b = $_POST["b"];
   $c = $_POST["c"];
+  $d = $_POST["d"];
   $answer = $_POST["answer"];
 
 
 
 
-  $sql ="INSERT INTO examtbl (exam_no,question,answer,a,b,c,points) VALUES ('$id', '$question', '$answer', '$a', '$b', '$c', '1')";
+  $sql ="INSERT INTO examtbl (exam_no,question,answer,a,b,c,d,points) VALUES ('$id', '$question', '$answer', '$a', '$b', '$c','$d', '1')";
 
 
   if($conn->query($sql) === TRUE ){
@@ -515,13 +533,19 @@ function confirm_pay() {
  
   }
 
+  if(f.ans4.checked == true){
+    f.answer.value = f.ans4.value;
+ 
+  }
 
-  if(f.ans1.checked == true && f.ans2.checked == true ||f.ans1.checked == true && f.ans3.checked == true || f.ans2.checked == true && f.ans3.checked == true){
+
+  if(f.ans1.checked == true && f.ans2.checked == true ||f.ans1.checked == true && f.ans3.checked == true || f.ans1.checked == true && f.ans4.checked == true || f.ans2.checked == true && f.ans3.checked == true ||f.ans2.checked == true && f.ans4.checked == true ||  f.ans3.checked == true && f.ans4.checked == true ){
 
       alert("Error! 2 or more answers didnt allowed ");
       f.ans1.checked = false;
       f.ans2.checked = false;
       f.ans3.checked = false;
+      f.ans4.checked = false;
 
       document.getElementById('answer').value='' ;
   }
