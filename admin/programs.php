@@ -45,6 +45,7 @@
 </form>
 
 <?php
+ $button= ''; 
 
 if (isset($_POST['padd'])) {
 
@@ -68,7 +69,7 @@ if (isset($_POST['padd'])) {
 <h5>Program List</h5>
 <br>
 <?php
-  $q1="SELECT DISTINCT program_name FROM  programtbl ";
+  $q1="SELECT * FROM  programtbl ";
 
            $r1= mysqli_query($conn,$q1);
 ?>
@@ -79,6 +80,7 @@ if (isset($_POST['padd'])) {
 
 
                                             <th style="width:40%">Program List</th>
+                                            <th style="width:5%">Action</th>
                                           
                                         </tr>
                                       </thead>
@@ -92,7 +94,9 @@ if (isset($_POST['padd'])) {
 
                                       
 
-                                         <td><?php echo $row["program_name"];?></td>
+                                         <td><?php echo $row["program_name"];?> </td>
+                                         <td> <a href="action_program.php?id=<?php echo $row["program_id"]; ?>"  onclick="return confirm_pay()" <?php echo $button?> class="btn btn-danger btn-sm "><i class="far fa-trash-alt"></i></a>
+</td>
 
                                          
 </tr>

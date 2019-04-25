@@ -28,7 +28,6 @@ include "php/nav.php";
 
 <div class="container">
 
-    <br>
 
 <div class="card-deck" >
   <div class="card">
