@@ -65,7 +65,8 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND status='1' AND program='
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
-                                            <th style="width:50%">Exam List</th>
+                                            <th style="width:25%">Exam List</th>
+                                            <th  style="width:25%">Exam Period</th>
                                             <th style="width:1%">Questions</th> 
                                             <th style="width:1%">Minutes</th>  
                                           
@@ -111,6 +112,14 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active' AND status='1' AND program='
                                         <td> <?php echo $counter ?></td>
                                         <td><?php echo $row["exam_name"]; ?></td>
 
+                                        <td><?php echo date('F j Y ',strtotime($row['edate'] ));?>
+                                        <?php echo date('h:i A',strtotime($row['etime_s']));?> To
+                                        <?php echo date('h:i A',strtotime($row['etime_d']));?>
+                                          
+
+
+                                        </td>
+
 <?php 
 
 $rows= mysqli_query($conn, "SELECT * FROM examtbl where exam_no ='$exam_no'");
@@ -140,8 +149,25 @@ $qrows= mysqli_num_rows($rows);
 
 
 
-                                   
+                                    <form action="" method="POST">
+
+                                     <input type="hidden" name="e_id" value="<?php echo $row["exam_no"]; ?>">
+                                     <input type="hidden" name="edate" value="<?php echo $row['edate']?>">
+                                     <input type="hidden" name="es" value="<?php echo $row['etime_s']?>">
+                                     <input type="hidden" name="ed" value="<?php echo $row['etime_d']?>">
+
+
+
+
+                                      <button type="submit" <?php echo   $button ?>  value="submit" name="TE" onclick="return confirm_pay()"  class="btn btn-primary btn-sm "><b>Take</b></button> 
+
+                                      <!--
+
                                           <a href="eval.php?id=<?php echo $row["exam_no"]; ?>"  onclick="return confirm_pay()" <?php echo   $button ?>  class="btn btn-primary btn-sm "><b>Take</b></a>
+                                      -->
+
+
+                                    </form>
 
                                       
 
@@ -174,3 +200,47 @@ function confirm_pay() {
 </body>
 </html>
 
+
+<?php 
+
+
+
+
+ 
+
+if (isset($_POST['TE'])) {
+
+date_default_timezone_set ("Asia/Manila");
+
+  $datee = date("Y-m-d");
+  $timee = date("H:i:s");
+
+  $e_id = $_POST['e_id'];
+  $edate = $_POST['edate'];
+  $es = $_POST['es'];
+  $ed = $_POST['ed'];
+
+
+if ($edate == $datee) { 
+
+
+  if (($es <= $timee) && ($ed >= $timee)){
+    
+ echo "<script>window.location.href = 'eval.php?id=$e_id';</script>";
+
+  }else{
+
+    echo "<script language = 'javascript'>alert('ERROR! It exam is not available!')</script>";
+  }
+  
+
+
+} else {
+
+   echo "<script language = 'javascript'>alert('ERROR! It exam is not available!')</script>";
+  
+}
+
+
+}
+?>

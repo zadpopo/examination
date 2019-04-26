@@ -16,6 +16,7 @@ if (isset($_POST['stud_no'])) {
   $data= $result->fetch_assoc();
   $bal = $data['balance'];
   $prog = $data['Program'];
+  $email = $data['Email'];
 
    $s2 = "SELECT * FROM enrolltbl WHERE student_number = '$stud_no' AND enroll_date ='$active'";
   $r2 = $conn->query($s2);
@@ -86,6 +87,7 @@ if (isset($_POST['stud_no'])) {
     Full payment
   </label>
 
+    <input type="hidden" value="<?php echo $email?>" name="email" required class="form-control">
   	<input type="hidden" value="<?php echo $stud_no?>" name="stud_no" required class="form-control">
     <input type="hidden" value="<?php echo $bal?>" name="bal" required class="form-control">
 

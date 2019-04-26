@@ -40,23 +40,25 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
 
 
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 
 
    <div class=" table-sorting table-responsive-sm mx-auto " style="width:95%">
-                   <table class="table table-striped table-bordered table-light"  id="tSortable22">
+                   <table class="table table-striped table-bordered table-light"  id="tSortable20">
                     <thead class="thead-dark">
                      <tr>
                                             <th style="width:1%">#</th>
 
-                                            <th style="width:40%">Exam List</th>
+                                            <th style="width:17%">Exam List</th>
+                                            <th  style="width:23%">Exam Period</th>
 
 
-                                            <th style="width:5%">Time(mins)</th>
+                                            <th style="width:1%">Mins</th>
 
-                                            <th style="width:20%">Program</th>
+                                            <th style="width:15%">Program</th>
                                           
-                                            <th style="width:12%">Action</th>                         
+                                            <th style="width:9%">Action</th>                         
                                        
                                             
                                            
@@ -92,6 +94,16 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
                                         <td ><?php echo $counter; ?></td>
                                         <td><?php echo $row["exam_name"]; ?></td>
+                                        <td><?php echo date('F j Y ',strtotime($row['edate'] ));?>
+                                        <?php echo date('h:i A',strtotime($row['etime_s']));?> To
+                                        <?php echo date('h:i A',strtotime($row['etime_d']));?>
+                                        	
+
+
+                                        </td>
+                                     
+                                        
+
 
 <?php
 
@@ -184,14 +196,14 @@ $rows_done_count= mysqli_num_rows($rows_done);
  
 
   <div class="form-group row">
-    <label for="" class="col-sm-2 col-form-label">Name:</label>
+    <label for="" class="col-sm-2 col-form-label"><span style=color:red; >*</span>Name:</label>
     <div class="col-sm-10">
     <input type="text" name="name" required class="form-control" id="" placeholder="">
   </div>
 </div>
 
  <div class="form-group row">
-    <label for="" class="col-sm-2 col-form-label">Programs:</label>
+    <label for="" class="col-sm-2 col-form-label"><span style=color:red; >*</span>Programs:</label>
     <div class="col-sm-8">
     <div class="form-group">
  
@@ -218,6 +230,33 @@ $rows_done_count= mysqli_num_rows($rows_done);
   </div>
 </div>
 
+<div class="form-group row">
+    <label for="" class="col-sm-3 col-form-label"><span style=color:red; >*</span>Date</label>
+    <div class="col-sm-6">
+
+    	<input type="date" name="edate" required class="form-control">
+
+</div>
+
+  </div>
+
+
+
+<div class="form-group row">
+    <label for="" class="col-sm-3 col-form-label"><span style=color:red; >*</span>Time</label>
+    <div class="col-sm-4">
+      
+<input type="time" name="et1" required class="form-control">
+
+    </div>
+  <label for="" class="col-form-label">To</label>
+    <div class="col-sm-4">
+     
+<input type="time" name="et2" required class="form-control">
+
+    </div>
+  </div>
+
  <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button  type="submit" name="bcexam" class="btn btn-warning">Create</button>
@@ -240,6 +279,10 @@ if (isset($_POST["bcexam"])) {
 	
 	 $qname = $_POST["name"];
 
+ $edate = $_POST["edate"];
+ $et1 = $_POST["et1"];
+ $et2 = $_POST["et2"];
+
    date_default_timezone_set ("Asia/Manila");
  
     $datee = date("Y");
@@ -259,7 +302,7 @@ echo "<script language = 'javascript'>alert('Error! The Exam is already register
 
 }else{
 
-  $sql ="INSERT INTO lexamtb (exam_name,program,exam_no,actyear,status) VALUES ( '$qname ', '$prog', '$code', '$active', '0')";
+  $sql ="INSERT INTO lexamtb (exam_name,program,exam_no,actyear,status,etime_s,etime_d,edate) VALUES ( '$qname ', '$prog', '$code', '$active', '0','$et1','$et2','$edate')";
 
 
   if($conn->query($sql) === TRUE ){
@@ -290,3 +333,14 @@ function confirm_pay() {
 </script>
 
 </html>
+
+
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+ <script>
+      $(document).ready(function() {
+   
+    $('#tSortable20').DataTable();
+} );
+  
+ </script>
