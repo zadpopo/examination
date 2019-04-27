@@ -208,8 +208,55 @@ if (isset($_POST['es'])) {
   $newbal = $old + $tf;
   date_default_timezone_set ("Asia/Manila");
   $datee = date("Y-m-d");
+  $email = $_POST["email"];
 
 
+  require '../PHPMailer/PHPMailerAutoload.php';
+
+          $mail = new PHPMailer;
+
+          $mail->IsSMTP();
+
+          $mail->Host = 'smtp.gmail.com';
+
+          $mail->SMTPAuth = true;
+
+          $mail->Username = 'toprankreviewcenter@gmail.com';
+
+          $mail->Password = 'top_rank1';
+
+          $mail->SMTPSecure = 'tsl';
+
+          $mail->Port = 587;
+
+          $mail->From = 'Top Rank Review Academy';
+
+          $mail->FromName = 'Registrar';
+
+          $mail->addAddress($email);
+
+          $mail->isHTML(true);
+
+          $message = "Thank you for enrolling in Top Rank Academy 
+
+              <br> $prog
+
+              <br> Your tuition fee in $active is :<b>$tf</b>
+
+
+              <br>  
+              ";
+
+          $mail->Subject = 'You are Enrolled';
+
+          $mail->Body = $message;
+
+          if(!$mail->send()) {
+            echo 'Message could not be sent';
+            echo 'Mailer Error: ' . $mail->ErrorInfo; 
+            echo "<script language = 'javascript'>alert('Enrollment Failed!')</script>";
+            
+          }else{
 
       $sql= "INSERT INTO enrolltbl (enroll_date, datee, student_number, program, block_id, tuition) VALUES ('$active','$datee', '$stud_no', '$prog', '$bloc_id', '$tf')";
 
@@ -228,7 +275,7 @@ if (isset($_POST['es'])) {
                   echo "Error" . $sql . '' . $conn->connect_error;
                   }
                $conn->close();
-
+}
 }
 ?>
 
@@ -283,6 +330,7 @@ if (isset($_POST['bpay'])) {
   $stud_no = $_POST["stud_no"];
 
   $newbal = $bal - $amount;
+  $email = $_POST["email"];
 
 
 date_default_timezone_set ("Asia/Manila");
@@ -298,6 +346,56 @@ $check_or_row= mysqli_num_rows($check_or);
        echo "<script language = 'javascript'>alert('Failed!! The Transaction is already recorded!!')</script>";
 }else{
 
+
+
+require '../PHPMailer/PHPMailerAutoload.php';
+
+          $mail = new PHPMailer;
+
+          $mail->IsSMTP();
+
+          $mail->Host = 'smtp.gmail.com';
+
+          $mail->SMTPAuth = true;
+
+          $mail->Username = 'toprankreviewcenter@gmail.com';
+
+          $mail->Password = 'top_rank1';
+
+          $mail->SMTPSecure = 'tsl';
+
+          $mail->Port = 587;
+
+          $mail->From = 'Top Rank Review Academy';
+
+          $mail->FromName = 'Registrar';
+
+          $mail->addAddress($email);
+
+          $mail->isHTML(true);
+
+          $message = "Your Student: <font color='green'><b>$stud_no</b></font> <br> 
+
+          Your Previous Balance is: <font color='red'><b>$bal</b></font><br>
+
+          Official Receipt: $or with the payment of $amount <br>
+
+          Your Latest Balance is: <font color='red'><b>$newbal</b></font><br>
+
+
+
+          ";
+
+          $mail->Subject = 'Payment';
+
+          $mail->Body = $message;
+
+          if(!$mail->send()) {
+            echo 'Message could not be sent';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            echo "<script language = 'javascript'>alert('Payment Registration Failed!')</script>";
+            
+          }else{
 
       $sql= "INSERT INTO `transactiontbl` (stud_id,`description`, `receipt`, `amount`, `trans_date`) VALUES ('$stud_no','$des', '$or', '$amount', '$datee')";
 
@@ -318,7 +416,7 @@ $check_or_row= mysqli_num_rows($check_or);
 
 
 }
-
+}
 
 }
 
