@@ -114,6 +114,12 @@ $studentnumb = ($date). "-".($random);
     <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
   </div>
 
+  <div class="form-group col-md-4">
+    <label for="Phone"><b style=color:red; >*</b>Email</label>
+    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+  </div>
+
+
 
 
  <div class="form-group col-md-4">
@@ -266,13 +272,12 @@ $Password = random_password(8);
 
 
 
+
 $email_check= mysqli_query($conn, "SELECT * FROM studenttbl WHERE Email='$email'");
  $rows_email_check= mysqli_num_rows($email_check);
 
+
  if($rows_email_check > 0) {
-
-
-          $mail->IsSMTP();
 
 
    echo "<script language = 'javascript'>alert('ERROR!Email is already registered')</script>";

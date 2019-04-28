@@ -48,7 +48,7 @@
 <br>
   <center>
 
-<h2 style="color: white"><b>Exam Sheet</b><h2> 
+<h2 style="color: white"><b></b><h2> 
 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#cq">
 Add Question
 </button>

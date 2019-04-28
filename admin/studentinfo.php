@@ -83,6 +83,12 @@ $d2 =$r2->fetch_assoc();
     </tr>
 
      <tr>
+      <th scope="row">Email: </th>
+      <td><?php echo $d2["Email"]; ?></td>
+      
+    </tr>
+
+     <tr>
       <th scope="row">Program:</th>
       <td><?php echo $d2["Program"]; ?></td>
       
@@ -97,6 +103,25 @@ $d2 =$r2->fetch_assoc();
     <tr>
       <th scope="row">Package: </th>
       <td><?php echo $d2["Package"]; ?></td>
+   
+    </tr>
+
+
+    <tr>
+      <th scope="row">Guardian Name: </th>
+      <td><?php echo $d2["GuardianName"]; ?></td>
+   
+    </tr>
+ <tr>
+      <th scope="row">Guardian Contact Number: </th>
+      <td><?php echo $d2["GContactNumber"]; ?></td>
+   
+    </tr>
+
+
+      <tr>
+      <th scope="row">Relationship: </th>
+      <td><?php echo $d2["Relationship"]; ?></td>
    
     </tr>
 

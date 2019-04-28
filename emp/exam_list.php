@@ -31,6 +31,9 @@ $q1="SELECT * FROM lexamtb WHERE actyear ='$active'";
 
 
 
+<div class="card" style="width: 95%;">
+  <div class="card-body">
+    <h5 class="card-title text-center">Exam List</h5>
 
 <center><button type="submit" class="btn btn-warning btn-sm" name="tran" data-toggle="modal" data-target="#cexam">
   Create New Exam Sheet
