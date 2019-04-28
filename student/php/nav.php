@@ -35,6 +35,13 @@ include ("connections.php");
  }else{
    echo "<script>window.location.href='../';</script>";
  }
+
+ if($_SESSION["acctype"]!='student'){
+   echo "<script language = 'javascript'>alert('ACCESS DENIED!')</script>";
+   echo "<script>window.location.href='../';</script>";
+ }else{
+   
+ }
  
 $retrieve_query = mysqli_query($conn, "SELECT * FROM logtbl WHERE user='$user' ");
 
