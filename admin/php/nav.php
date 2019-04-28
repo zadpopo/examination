@@ -48,6 +48,13 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
 
 }
 
+if($_SESSION["acctype"]!='1'){
+   echo "<script language = 'javascript'>alert('ACCESS DENIED!')</script>";
+   echo "<script>window.location.href='../';</script>";
+ }else{
+   
+ }
+
 
 $retrieve_query = mysqli_query($conn, "SELECT * FROM emptbl WHERE e_id='$emp_user' AND password ='$emp_pass'");
 

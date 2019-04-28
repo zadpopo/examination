@@ -254,6 +254,9 @@ if (isset($_POST['es'])) {
           if(!$mail->send()) {
             echo 'Message could not be sent';
             echo 'Mailer Error: ' . $mail->ErrorInfo; 
+
+            echo "<script language = 'javascript'>alert('Enrollment Failed!')</script>";
+
             
           }else{
 
@@ -391,7 +394,10 @@ require '../PHPMailer/PHPMailerAutoload.php';
 
           if(!$mail->send()) {
             echo 'Message could not be sent';
-            echo 'Mailer Error: ' . $mail->ErrorInfo; 
+
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            echo "<script language = 'javascript'>alert('Payment Registration Failed!')</script>";
+
             
           }else{
 
