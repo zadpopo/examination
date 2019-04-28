@@ -34,11 +34,11 @@
   <div class="form-group row">
     <label for="" class="col-sm-2 col-form-label text-white" >Activite Year:</label>
     <div class="col-sm-3">
-    <input type="number"  class="form-control" id="" required name="y1" placeholder="">
+    <input type="number"  class="form-control" id="" required name="y1" placeholder="Year...">
   </div>
    <label for="" class="col-sm-1 col-form-label">-</label>
   <div class="col-sm-3">
-    <input type="text"  class="form-control" id=""required   name="y2" placeholder="">
+    <input type="text"  class="form-control" id=""required   name="y2" placeholder="Season...">
   </div>
 </div>
   <br><br><br>
