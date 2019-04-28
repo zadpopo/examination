@@ -241,6 +241,13 @@ date_default_timezone_set("Asia/Manila");
 
 $studentnumb = ($date). "-".($random). "-".($random);
 
+function random_password( $length=5 ) {
+            $str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            $shuffled = substr ( str_shuffle ( $str ), 0, $length);
+            return $shuffled;
+          }
+
+$Password = random_password(8);
 
 function random_password( $length=5 ) {
             $str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -258,10 +265,14 @@ $Password = random_password(8);
 	$db_pass= base64_encode($cryptedpass);
 
 
+
 $email_check= mysqli_query($conn, "SELECT * FROM studenttbl WHERE Email='$email'");
  $rows_email_check= mysqli_num_rows($email_check);
 
  if($rows_email_check > 0) {
+
+
+          $mail->IsSMTP();
 
 
    echo "<script language = 'javascript'>alert('ERROR!Email is already registered')</script>";
@@ -289,6 +300,7 @@ $email_check= mysqli_query($conn, "SELECT * FROM studenttbl WHERE Email='$email'
 
           $mail->From = 'Top Rank Review Academy';
 
+
           $mail->FromName = 'Registrar';
 
           $mail->addAddress($email);
@@ -303,9 +315,11 @@ $email_check= mysqli_query($conn, "SELECT * FROM studenttbl WHERE Email='$email'
 
           if(!$mail->send()) {
             echo 'Message could not be sent';
+
             echo 'Mailer Error: ' . $mail->ErrorInfo;
             echo "<script language = 'javascript'>alert('ERROR!')</script>";
                echo "<script>window.location.href = 'home.php';</script>";
+
             
           }else{
 
