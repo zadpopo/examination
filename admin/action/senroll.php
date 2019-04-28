@@ -16,6 +16,8 @@ if (isset($_POST['stud_no'])) {
 
   $bal = $data['balance'];
 
+  $email = $data['Email'];
+
   
 
 
@@ -127,6 +129,7 @@ $query= "SELECT * FROM  block  WHERE program ='$prog' AND year ='$active'";
     <input type="hidden" name="old" value="<?php echo $bal?>">
     <input type="hidden" value="<?php echo $stud_no?>" name="stud_no" required class="form-control">
     <input type="hidden" value="<?php echo $prog?>" name="prog" required class="form-control">
+    <input type="hidden" value="<?php echo $email?>" name="email" required class="form-control">
 
 
 
