@@ -48,7 +48,7 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
 
 }
 
-if($_SESSION["acctype"]!='1'){
+if($_SESSION["acctype"]!='admin'){
    echo "<script language = 'javascript'>alert('ACCESS DENIED!')</script>";
    echo "<script>window.location.href='../';</script>";
  }else{

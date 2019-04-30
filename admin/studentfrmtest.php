@@ -114,11 +114,6 @@ $studentnumb = ($date). "-".($random);
     <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
   </div>
 
-  <div class="form-group col-md-4">
-    <label for="Phone"><b style=color:red; >*</b>Email</label>
-    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-  </div>
-
 
 
 
@@ -247,13 +242,7 @@ date_default_timezone_set("Asia/Manila");
 
 $studentnumb = ($date). "-".($random). "-".($random);
 
-function random_password( $length=5 ) {
-            $str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            $shuffled = substr ( str_shuffle ( $str ), 0, $length);
-            return $shuffled;
-          }
 
-$Password = random_password(8);
 
 function random_password( $length=5 ) {
             $str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
