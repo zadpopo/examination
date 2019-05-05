@@ -138,10 +138,15 @@ while($row_users = mysqli_fetch_assoc( $retrieve_query )){
                         </span>
                     </a>
                 </li>
-
-
-
-               
+                                   <li>
+                    <a href="changepass.php">
+                      <br>
+                       <i class="fa fa-key fa-1.5x"></i>
+                        <span class="nav-text">
+                            Change Password
+                        </span>
+                    </a>
+                </li>
 
                  
             </ul>
